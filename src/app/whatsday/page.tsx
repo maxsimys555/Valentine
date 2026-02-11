@@ -57,7 +57,7 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="flex justify-between mt-17">
+        <div className="flex justify-between mt-20">
           <Image src="/smile6.png" alt="emoji" width={150} height={150} />
           <Image src="/smile6.png" alt="emoji" width={150} height={150} />
         </div>

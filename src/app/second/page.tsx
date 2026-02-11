@@ -61,7 +61,7 @@ export default function Home() {
                     : "opacity-0 translate-y-2",
                 ].join(" ")}
               >
-                І сьогодні, у тебе є можливість
+                І сьогодні, у тебе є можливість,
               </h1>
               <h1
                 className={[
