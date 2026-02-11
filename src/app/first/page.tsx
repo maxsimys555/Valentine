@@ -1,5 +1,5 @@
 "use client";
-import WavingHand from "@/components/WavingHand/WavingHand";
+
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -16,17 +16,22 @@ export default function Home() {
         </div>
         <div>
           <div className="flex justify-center">
-            <h1 className="text-5xl font-semibold text-slate-900">
-              Привіт, Анжеліка
+            <h1 className="text-4xl font-semibold text-slate-900">
+              А ти знаєш, який сьогодні день?
             </h1>
-            <WavingHand />
           </div>
-          <div className="flex justify-center ">
+          <div className="flex justify-center gap-5 mt-15">
             <button
-              onClick={() => router.push("/first")}
-              className="w-50 h-15 mt-15 rounded-2xl text-3xl text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition cursor-pointer"
+              onClick={() => router.push("/whatsday")}
+              className="w-50 h-15  rounded-2xl text-3xl text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition cursor-pointer"
             >
-              Привіт
+              Так
+            </button>
+            <button
+              onClick={() => router.push("/goodbye")}
+              className="w-50 h-15  rounded-2xl text-3xl text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition cursor-pointer"
+            >
+              Ні
             </button>
           </div>
         </div>

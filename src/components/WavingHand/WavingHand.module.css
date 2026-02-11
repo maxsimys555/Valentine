@@ -1,0 +1,16 @@
+@keyframes wavePause {
+  0%   { transform: rotate(0deg); }
+  8%   { transform: rotate(28deg); }
+  18%  { transform: rotate(-22deg); }
+  28%  { transform: rotate(28deg); }
+  38%  { transform: rotate(-18deg); }
+  48%  { transform: rotate(22deg); }
+  58%  { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); } /* пауза до конца */
+}
+
+.wave {
+  display: inline-block;
+  transform-origin: 70% 75%;
+  animation: wavePause 1.7s ease-in-out infinite;
+}
