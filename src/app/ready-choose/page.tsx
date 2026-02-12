@@ -1,7 +1,7 @@
 "use client";
 
 import AppButton from "@/components/buttons/AppButton";
-import Image from "next/image";
+import ImagePair from "@/components/ImagePair/ImagePair";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -26,10 +26,7 @@ export default function Home() {
   return (
     <div className="flex flex-col justify-center items-center h-screen">
       <div className="w-145 h-170 rounded-4xl bg-rose-50">
-        <div className="flex justify-between">
-          <Image src="/smile10.png" alt="emoji" width={150} height={150} />
-          <Image src="/smile10.png" alt="emoji" width={150} height={150} />
-        </div>
+        <ImagePair leftSrc="/smile10.png" rightSrc="/smile10.png" />
         <div>
           <div className="flex flex-col text-center justify-center">
             <h1
@@ -69,10 +66,7 @@ export default function Home() {
             </AppButton>
           </div>
         </div>
-        <div className="flex justify-between">
-          <Image src="/smile10.png" alt="emoji" width={150} height={150} />
-          <Image src="/smile10.png" alt="emoji" width={150} height={150} />
-        </div>
+        <ImagePair leftSrc="/smile10.png" rightSrc="/smile10.png" />
       </div>
     </div>
   );

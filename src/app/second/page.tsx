@@ -1,7 +1,7 @@
 "use client";
 
 import AppButton from "@/components/buttons/AppButton";
-import Image from "next/image";
+import ImagePair from "@/components/ImagePair/ImagePair";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -36,10 +36,7 @@ export default function Home() {
       <FireworksOnLoad durationMs={2000} />
       <div className="flex flex-col justify-center items-center h-screen">
         <div className="w-145 h-170 rounded-4xl bg-rose-50">
-          <div className="flex justify-between">
-            <Image src="/smile19.png" alt="emoji" width={150} height={150} />
-            <Image src="/smile19.png" alt="emoji" width={150} height={150} />
-          </div>
+          <ImagePair leftSrc="/smile19.png" rightSrc="/smile19.png" />
           <div>
             <div className="flex flex-col gap-5 justify-center">
               <h1
@@ -85,10 +82,7 @@ export default function Home() {
               </AppButton>
             </div>
           </div>
-          <div className="flex justify-between mt-17">
-            <Image src="/smile19.png" alt="emoji" width={150} height={150} />
-            <Image src="/smile19.png" alt="emoji" width={150} height={150} />
-          </div>
+          <ImagePair leftSrc="/smile19.png" rightSrc="/smile19.png" className="mt-17" />
         </div>
       </div>
     </div>

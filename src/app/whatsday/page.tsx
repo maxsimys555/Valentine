@@ -1,16 +1,13 @@
 "use client";
 
 import AppLinkButton from "@/components/buttons/AppLinkButton";
-import Image from "next/image";
+import ImagePair from "@/components/ImagePair/ImagePair";
 
 export default function Home() {
   return (
     <div className="flex flex-col justify-center items-center h-screen">
       <div className="w-145 h-170 rounded-4xl bg-rose-50">
-        <div className="flex justify-between">
-          <Image src="/smile6.png" alt="emoji" width={150} height={150} />
-          <Image src="/smile6.png" alt="emoji" width={150} height={150} />
-        </div>
+        <ImagePair leftSrc="/smile6.png" rightSrc="/smile6.png" />
 
         <div className="flex justify-center mt-15">
           <h1 className="text-5xl font-semibold text-slate-900">Який сьогодні день?</h1>
@@ -48,10 +45,7 @@ export default function Home() {
           </AppLinkButton>
         </div>
 
-        <div className="flex justify-between mt-20">
-          <Image src="/smile6.png" alt="emoji" width={150} height={150} />
-          <Image src="/smile6.png" alt="emoji" width={150} height={150} />
-        </div>
+        <ImagePair leftSrc="/smile6.png" rightSrc="/smile6.png" className="mt-20" />
       </div>
     </div>
   );
