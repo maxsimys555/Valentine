@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import AppButton from "@/components/buttons/AppButton";
 import Image from "next/image";
@@ -28,8 +28,8 @@ export default function GoodbyePage() {
             </h1>
           </div>
           <div className="flex justify-center gap-5 mt-10">
-            <Image src="/smile5.png" alt="emoji" width={150} height={150} />
-            <Image src="/smile7.png" alt="emoji" width={150} height={150} />
+            <Image src="/smile5.webp" alt="emoji" width={150} height={150} />
+            <Image src="/smile7.webp" alt="emoji" width={150} height={150} />
           </div>
           <div className="flex flex-col justify-center items-center mt-15">
             <div
@@ -44,7 +44,7 @@ export default function GoodbyePage() {
               <h1 className="text-3xl font-semibold text-slate-900">
                 Добре, даю тобі ще одну спробу...
               </h1>
-              <Image src="/smile8.png" alt="emoji" width={100} height={100} />
+              <Image src="/smile8.webp" alt="emoji" width={100} height={100} />
 
               <AppButton
                 onClick={() => router.push("/first")}
@@ -59,3 +59,5 @@ export default function GoodbyePage() {
     </div>
   );
 }
+
+

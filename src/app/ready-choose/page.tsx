@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import AppButton from "@/components/buttons/AppButton";
 import ImagePair from "@/components/ImagePair/ImagePair";
@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <div className="flex flex-col justify-center items-center h-screen">
       <div className="w-145 h-170 rounded-4xl bg-rose-50">
-        <ImagePair leftSrc="/smile10.png" rightSrc="/smile10.png" />
+        <ImagePair leftSrc="/smile10.webp" rightSrc="/smile10.webp" />
         <div>
           <div className="flex flex-col text-center justify-center">
             <h1
@@ -66,8 +66,10 @@ export default function Home() {
             </AppButton>
           </div>
         </div>
-        <ImagePair leftSrc="/smile10.png" rightSrc="/smile10.png" />
+        <ImagePair leftSrc="/smile10.webp" rightSrc="/smile10.webp" />
       </div>
     </div>
   );
 }
+
+

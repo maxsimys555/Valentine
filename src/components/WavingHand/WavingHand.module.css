@@ -1,4 +1,4 @@
-@keyframes wavePause {
+﻿@keyframes wavePause {
   0%   { transform: rotate(0deg); }
   8%   { transform: rotate(28deg); }
   18%  { transform: rotate(-22deg); }
@@ -14,3 +14,4 @@
   transform-origin: 70% 75%;
   animation: wavePause 1.7s ease-in-out infinite;
 }
+

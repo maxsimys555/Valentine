@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import AppButton from "@/components/buttons/AppButton";
 import ImagePair from "@/components/ImagePair/ImagePair";
@@ -36,7 +36,7 @@ export default function Home() {
       <FireworksOnLoad durationMs={2000} />
       <div className="flex flex-col justify-center items-center h-screen">
         <div className="w-145 h-170 rounded-4xl bg-rose-50">
-          <ImagePair leftSrc="/smile19.png" rightSrc="/smile19.png" />
+          <ImagePair leftSrc="/smile19.webp" rightSrc="/smile19.webp" />
           <div>
             <div className="flex flex-col gap-5 justify-center">
               <h1
@@ -82,9 +82,11 @@ export default function Home() {
               </AppButton>
             </div>
           </div>
-          <ImagePair leftSrc="/smile19.png" rightSrc="/smile19.png" className="mt-17" />
+          <ImagePair leftSrc="/smile19.webp" rightSrc="/smile19.webp" className="mt-17" />
         </div>
       </div>
     </div>
   );
 }
+
+

@@ -19,7 +19,7 @@ export default function GiftsClient() {
   return (
     <div className="flex flex-col justify-center items-center h-screen">
       <div className="w-145 h-170 rounded-4xl bg-rose-50">
-        <ImagePair leftSrc="/smile20.png" rightSrc="/smile20.png" />
+        <ImagePair leftSrc="/smile20.webp" rightSrc="/smile20.webp" />
 
         <div>
           <h1 className="text-3xl font-semibold text-center">Твій вибір:</h1>
@@ -27,7 +27,7 @@ export default function GiftsClient() {
           {chosen.length === 0 ? (
             <p className="text-lg">Нічого не обрано.</p>
           ) : (
-            <div className="flex gap-6 flex-wrap justify-center mt-10">
+            <div className="flex gap-6 flex-wrap justify-center mt-10 text-center">
               {chosen.map((giftId) => {
                 const gift = giftById[giftId];
 
@@ -61,8 +61,9 @@ export default function GiftsClient() {
           </AppButton>
         </div>
 
-        <ImagePair leftSrc="/smile20.png" rightSrc="/smile20.png" className="mt-8" />
+        <ImagePair leftSrc="/smile20.webp" rightSrc="/smile20.webp" className="mt-8" />
       </div>
     </div>
   );
 }
+
