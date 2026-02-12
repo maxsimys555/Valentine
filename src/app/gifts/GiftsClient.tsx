@@ -19,7 +19,7 @@ export default function GiftsClient() {
   return (
     <div className="flex flex-col justify-center items-center h-screen">
       <div className="w-145 h-170 rounded-4xl bg-rose-50">
-        <ImagePair leftSrc="/smile20.webp" rightSrc="/smile20.webp" />
+        <ImagePair leftSrc="/smile20.webp" rightSrc="/smile20.webp"  priority />
 
         <div>
           <h1 className="text-3xl font-semibold text-center">Твій вибір:</h1>
@@ -66,4 +66,5 @@ export default function GiftsClient() {
     </div>
   );
 }
+
 

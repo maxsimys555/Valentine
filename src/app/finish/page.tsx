@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="flex flex-col justify-center items-center h-screen">
       <div className="w-145 h-170 rounded-4xl bg-rose-50">
-        <ImagePair leftSrc="/smile12.webp" rightSrc="/smile12.webp" />
+        <ImagePair leftSrc="/smile12.webp" rightSrc="/smile12.webp"  priority />
         <div>
           <div className="flex justify-center mt-5">
             <h1 className="text-5xl font-semibold text-slate-900 text-center">
@@ -30,5 +30,6 @@ export default function Home() {
     </div>
   );
 }
+
 
 

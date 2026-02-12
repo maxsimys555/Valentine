@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="flex flex-col justify-center items-center h-screen">
       <div className="w-145 h-170 rounded-4xl bg-rose-50">
-        <ImagePair leftSrc="/smile6.webp" rightSrc="/smile6.webp" />
+        <ImagePair leftSrc="/smile6.webp" rightSrc="/smile6.webp"  priority />
 
         <div className="flex justify-center mt-15">
           <h1 className="text-5xl font-semibold text-slate-900">Який сьогодні день?</h1>
@@ -50,5 +50,6 @@ export default function Home() {
     </div>
   );
 }
+
 
 

@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="flex flex-col justify-center items-center h-screen">
       <div className="w-145 h-170 rounded-4xl bg-rose-50">
-        <ImagePair leftSrc="/smile9.webp" rightSrc="/smile9.webp" />
+        <ImagePair leftSrc="/smile9.webp" rightSrc="/smile9.webp"  priority />
 
         <div className="flex justify-center mt-25">
           <h1 className="text-4xl font-semibold text-slate-900">Цікаво, сама придумала?</h1>
@@ -26,5 +26,6 @@ export default function Home() {
     </div>
   );
 }
+
 
 
