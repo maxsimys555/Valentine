@@ -1,10 +1,9 @@
 ﻿"use client";
 
-import AppButton from "@/components/buttons/AppButton";
+import AppLinkButton from "@/components/buttons/AppLinkButton";
 import ImagePair from "@/components/ImagePair/ImagePair";
 import { gifts } from "@/lib/gifts";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 const MAX = 3;
@@ -23,8 +22,6 @@ const POSITIONS = [
 ];
 
 export default function Home() {
-  const router = useRouter();
-
   const [selected, setSelected] = useState<string[]>([]);
   const selectedSet = useMemo(() => new Set(selected), [selected]);
   const isLimitReached = selected.length >= MAX;
@@ -79,11 +76,11 @@ export default function Home() {
     });
   };
 
-  const goNext = () => {
+  const nextHref = useMemo(() => {
     const params = new URLSearchParams();
     selected.forEach((giftId) => params.append("g", giftId));
-    router.push(`/gifts?${params.toString()}`);
-  };
+    return `/gifts?${params.toString()}`;
+  }, [selected]);
 
   const moveMassage = () => {
     if (isMoving || isMassageCaught) return;
@@ -166,8 +163,9 @@ export default function Home() {
           </div>
 
           <div className="flex justify-center gap-5 mt-15">
-            <AppButton
-              onClick={goNext}
+            <AppLinkButton
+              href={nextHref}
+              prefetch
               disabled={selected.length === 0}
               className={[
                 "h-14 px-6 text-lg",
@@ -177,7 +175,7 @@ export default function Home() {
               ].join(" ")}
             >
               Отримати
-            </AppButton>
+            </AppLinkButton>
           </div>
         </div>
 

@@ -1,12 +1,10 @@
 ﻿"use client";
 
-import AppButton from "@/components/buttons/AppButton";
+import AppLinkButton from "@/components/buttons/AppLinkButton";
 import ImagePair from "@/components/ImagePair/ImagePair";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const router = useRouter();
   const [showText1, setShowText1] = useState(false);
   const [showText2, setShowText2] = useState(false);
   const [showBtn, setShowBtn] = useState(false);
@@ -52,8 +50,9 @@ export default function Home() {
             </h1>
           </div>
           <div className="flex justify-center gap-5 mt-15">
-            <AppButton
-              onClick={() => router.push("/choose-gift")}
+            <AppLinkButton
+              href="/choose-gift"
+              prefetch
               className={[
                 "w-75 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700",
                 "transition-all duration-500 ease-out",
@@ -63,7 +62,7 @@ export default function Home() {
               ].join(" ")}
             >
               Готова
-            </AppButton>
+            </AppLinkButton>
           </div>
         </div>
         <ImagePair leftSrc="/smile10.webp" rightSrc="/smile10.webp" />

@@ -16,29 +16,37 @@ export default function Home() {
         <div className="flex justify-center gap-5 mt-15">
           <AppLinkButton
             href="/notdays-mikolay"
+            prefetch
             className="p-2 text-2xl bg-indigo-600 hover:bg-indigo-700"
           >
             Миколайчик
           </AppLinkButton>
           <AppLinkButton
             href="/notdays-8march"
+            prefetch
             className="p-2 text-2xl bg-indigo-600 hover:bg-indigo-700"
           >
             8 Березня
           </AppLinkButton>
           <AppLinkButton
             href="/notdays-max"
+            prefetch
             className="p-2 text-2xl bg-indigo-600 hover:bg-indigo-700"
           >
             Максима
           </AppLinkButton>
         </div>
         <div className="flex justify-center gap-5 mt-10">
-          <AppLinkButton href="/second" className="p-2 text-2xl bg-indigo-600 hover:bg-indigo-700">
+          <AppLinkButton
+            href="/second"
+            prefetch
+            className="p-2 text-2xl bg-indigo-600 hover:bg-indigo-700"
+          >
             День святого Валентина
           </AppLinkButton>
           <AppLinkButton
             href="/notdays-smm"
+            prefetch
             className="p-2 text-2xl bg-indigo-600 hover:bg-indigo-700"
           >
             День святого SMM

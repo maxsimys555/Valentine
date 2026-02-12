@@ -1,12 +1,10 @@
 ﻿"use client";
 
-import AppButton from "@/components/buttons/AppButton";
+import AppLinkButton from "@/components/buttons/AppLinkButton";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function GoodbyePage() {
-  const router = useRouter();
   const [showRetry, setShowRetry] = useState(false);
 
   useEffect(() => {
@@ -46,12 +44,13 @@ export default function GoodbyePage() {
               </h1>
               <Image src="/smile8.webp" alt="emoji" width={100} height={100} />
 
-              <AppButton
-                onClick={() => router.push("/first")}
+              <AppLinkButton
+                href="/first"
+                prefetch
                 className="w-70 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700"
               >
                 Реабілітуватись
-              </AppButton>
+              </AppLinkButton>
             </div>
           </div>
         </div>

@@ -19,6 +19,7 @@ export default function Home() {
           <h1 className="text-3xl">Нажаль, не вгадала!</h1>
           <AppLinkButton
             href="/whatsday"
+            prefetch
             className="py-1 px-2 text-2xl bg-indigo-600 hover:bg-indigo-700 hover:text-red-400"
           >
             Спробувати ще раз

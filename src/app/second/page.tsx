@@ -1,9 +1,8 @@
 ﻿"use client";
 
-import AppButton from "@/components/buttons/AppButton";
+import AppLinkButton from "@/components/buttons/AppLinkButton";
 import ImagePair from "@/components/ImagePair/ImagePair";
 import dynamic from "next/dynamic";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const FireworksOnLoad = dynamic(() => import("@/components/FireworksOnLoad"), {
@@ -11,7 +10,6 @@ const FireworksOnLoad = dynamic(() => import("@/components/FireworksOnLoad"), {
 });
 
 export default function Home() {
-  const router = useRouter();
   const [showTitle, setShowTitle] = useState(false);
   const [showText1, setShowText1] = useState(false);
   const [showText2, setShowText2] = useState(false);
@@ -68,8 +66,9 @@ export default function Home() {
               </h1>
             </div>
             <div className="flex justify-center gap-5 mt-15">
-              <AppButton
-                onClick={() => router.push("/ready-choose")}
+              <AppLinkButton
+                href="/ready-choose"
+                prefetch
                 className={[
                   "w-75 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700",
                   "transition-all duration-500 ease-out",
@@ -79,7 +78,7 @@ export default function Home() {
                 ].join(" ")}
               >
                 Обрати подарунок
-              </AppButton>
+              </AppLinkButton>
             </div>
           </div>
           <ImagePair leftSrc="/smile19.webp" rightSrc="/smile19.webp" className="mt-17" />
