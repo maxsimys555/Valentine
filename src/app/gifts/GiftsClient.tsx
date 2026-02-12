@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import AppButton from "@/components/buttons/AppButton";
 import ImagePair from "@/components/ImagePair/ImagePair";
@@ -22,10 +22,10 @@ export default function GiftsClient() {
         <ImagePair leftSrc="/smile20.png" rightSrc="/smile20.png" />
 
         <div>
-          <h1 className="text-3xl font-semibold text-center">РўРІС–Р№ РІРёР±С–СЂ:</h1>
+          <h1 className="text-3xl font-semibold text-center">Твій вибір:</h1>
 
           {chosen.length === 0 ? (
-            <p className="text-lg">РќС–С‡РѕРіРѕ РЅРµ РѕР±СЂР°РЅРѕ.</p>
+            <p className="text-lg">Нічого не обрано.</p>
           ) : (
             <div className="flex gap-6 flex-wrap justify-center mt-10">
               {chosen.map((giftId) => {
@@ -45,19 +45,19 @@ export default function GiftsClient() {
           )}
         </div>
 
-        <h1 className="text-4xl font-semibold text-center mt-20">РҐРѕС‡РµС€ Р·РјС–РЅРёС‚Рё РІРёР±С–СЂ?</h1>
+        <h1 className="text-4xl font-semibold text-center mt-20">Хочеш змінити вибір?</h1>
         <div className="flex justify-center gap-5 mt-10">
           <AppButton
             onClick={() => router.push("/choose-gift")}
             className="w-50 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700"
           >
-            РўР°Рє
+            Так
           </AppButton>
           <AppButton
             onClick={() => router.push("/finish")}
             className="w-50 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700"
           >
-            РќС–
+            Ні
           </AppButton>
         </div>
 
