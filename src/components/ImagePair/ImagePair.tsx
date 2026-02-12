@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { imagePlaceholders } from "@/lib/imagePlaceholders";
 
 type ImagePairProps = {
   leftSrc: string;
@@ -45,8 +44,6 @@ export default function ImagePair({
         sizes={IMAGE_SIZES}
         quality={70}
         onLoadingComplete={handleLoad}
-        placeholder={imagePlaceholders[leftSrc] ? "blur" : "empty"}
-        blurDataURL={imagePlaceholders[leftSrc]}
         className={[
           IMAGE_CLASS_NAME,
           "transition-opacity duration-150",
@@ -64,8 +61,6 @@ export default function ImagePair({
         sizes={IMAGE_SIZES}
         quality={70}
         onLoadingComplete={handleLoad}
-        placeholder={imagePlaceholders[rightSrc] ? "blur" : "empty"}
-        blurDataURL={imagePlaceholders[rightSrc]}
         className={[
           IMAGE_CLASS_NAME,
           "transition-opacity duration-150",

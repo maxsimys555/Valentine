@@ -3,7 +3,6 @@
 import AppButton from "@/components/buttons/AppButton";
 import ImagePair from "@/components/ImagePair/ImagePair";
 import Image from "next/image";
-import { imagePlaceholders } from "@/lib/imagePlaceholders";
 
 export default function Home() {
   return (
@@ -17,22 +16,8 @@ export default function Home() {
             </h1>
           </div>
           <div className="flex justify-center mt-10">
-            <Image
-              src="/smile22.webp"
-              alt="emoji"
-              width={150}
-              height={150}
-              placeholder="blur"
-              blurDataURL={imagePlaceholders["/smile22.webp"]}
-            />
-            <Image
-              src="/Love.jpg"
-              alt="emoji"
-              width={150}
-              height={150}
-              placeholder="blur"
-              blurDataURL={imagePlaceholders["/Love.jpg"]}
-            />
+            <Image src="/smile22.webp" alt="emoji" width={150} height={150} />
+            <Image src="/Love.jpg" alt="emoji" width={150} height={150} />
           </div>
           <div className="flex justify-center gap-5 mt-15">
             <AppButton className="w-60 h-17 text-2xl bg-indigo-600 hover:bg-indigo-700">

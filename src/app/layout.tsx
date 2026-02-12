@@ -1,6 +1,7 @@
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
+import NavigationLoaderProvider from "@/components/NavigationLoader/NavigationLoaderProvider";
 
-import './globals.css';
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Max Valentine for Angelika",
@@ -17,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen bg-linear-to-br from-blue-500 via-red-500 to-purple-600">
-        {children}
+        <NavigationLoaderProvider>{children}</NavigationLoaderProvider>
       </body>
     </html>
   );
