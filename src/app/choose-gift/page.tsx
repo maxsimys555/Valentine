@@ -3,31 +3,17 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
-
-const gifts = [
-  "Суши сет",
-  "Букет квітів",
-  "Поповнення на телефон",
-  "Сніданок в ліжко",
-  "Шоколадка",
-  "+18",
-  "Шаурма",
-  "200 гривень",
-  "Подарок 9",
-  "Масаж",
-];
+import { gifts } from "@/lib/gifts";
 
 const MAX = 3;
-const RETURN_DELAY_MS = 1000;
-const TRANSITION_MS = 450;
-const ADULT_GIFT = "+18";
-const MASSAGE_GIFT = "Масаж";
+const RETURN_DELAY_MS = 450;
+const TRANSITION_MS = 250;
 const DEFAULT_OFFSET = { x: 0, y: 0 };
 const BASE_GIFT_BUTTON_CLASS =
-  "h-14 w-30 rounded-2xl text-lg cursor-pointer transition-all duration-300";
+  "h-14 w-30 rounded-2xl text-lg cursor-pointer transition-all duration-300 flex items-center justify-center text-center";
 
 const POSITIONS = [
-  { x: -65, y: 270 },
+  { x: -65, y: 240 },
   { x: 138, y: 0 },
   { x: -272, y: 0 },
   { x: -65, y: -300 },
@@ -76,42 +62,35 @@ export default function Home() {
     [
       BASE_GIFT_BUTTON_CLASS,
       active
-        ? "bg-indigo-600 text-white"
-        : "bg-slate-200 text-slate-900 hover:bg-slate-300",
+        ? "bg-rose-700 text-white shadow-[0_12px_28px_rgba(190,24,93,0.45)]"
+        : "bg-rose-300 text-rose-950 hover:bg-rose-600 hover:text-white",
       !active && isLimitReached ? "opacity-50" : "",
     ].join(" ");
 
-  const giftLabel = (gift: string) =>
-    gift === ADULT_GIFT ? (
-      <Image src="/smile18.png" alt="+18" width={30} height={30} />
-    ) : (
-      gift
-    );
-
-  const toggleGift = (gift: string) => {
+  const toggleGift = (id: string) => {
     setSelected((prev) => {
-      const isSelected = prev.includes(gift);
-      if (isSelected) return prev.filter((x) => x !== gift);
+      const isSelected = prev.includes(id);
+      if (isSelected) return prev.filter((x) => x !== id);
       if (prev.length >= MAX) return prev;
-      return [...prev, gift];
+      return [...prev, id];
     });
   };
 
   const goNext = () => {
     const params = new URLSearchParams();
-    selected.forEach((g) => params.append("g", g));
+    selected.forEach((giftId) => params.append("g", giftId));
     router.push(`/gifts?${params.toString()}`);
   };
 
   const moveMassage = () => {
     if (isMoving || isMassageCaught) return;
+    if (isLimitReached && !selectedSet.has("massage")) return;
 
     setIsMoving(true);
     clearTimers();
 
     const nextIndex = (posIndex + 1) % POSITIONS.length;
     setPosIndex(nextIndex);
-
     setMassageOffset(POSITIONS[nextIndex]);
     scheduleReturn();
   };
@@ -133,46 +112,53 @@ export default function Home() {
 
           <div className="flex gap-4 flex-wrap justify-center mt-10">
             {gifts.map((gift) => {
-              const active = selectedSet.has(gift);
-              const isMassage = gift === MASSAGE_GIFT;
+              const active = selectedSet.has(gift.id);
+              const isMassage = gift.id === "massage";
 
               if (!isMassage) {
                 return (
                   <button
-                    key={gift}
-                    onClick={() => toggleGift(gift)}
+                    key={gift.id}
+                    onClick={() => toggleGift(gift.id)}
+                    disabled={!active && isLimitReached}
                     className={getGiftButtonClass(active)}
                   >
-                    {giftLabel(gift)}
+                    {gift.image ? (
+                      <Image src={gift.image} alt="gift" width={40} height={40} />
+                    ) : (
+                      gift.label
+                    )}
                   </button>
                 );
               }
 
               return (
                 <div
-                  key={gift}
+                  key={gift.id}
                   className="relative w-30 h-14"
                   onMouseEnter={moveMassage}
                 >
                   <button
                     onClick={() => {
                       setIsMassageCaught(true);
-                      toggleGift(gift);
+                      toggleGift(gift.id);
                     }}
+                    disabled={!active && isLimitReached}
                     style={{
                       transform: `translate(${massageOffset.x}px, ${massageOffset.y}px)`,
                       transitionDuration: `${TRANSITION_MS}ms`,
                     }}
                     className={[
-                      "absolute inset-0 h-14 w-30 rounded-2xl text-lg cursor-pointer",
+                      "absolute inset-0",
+                      getGiftButtonClass(active),
                       "transition-transform ease-out",
-                      active
-                        ? "bg-indigo-600 text-white"
-                        : "bg-slate-200 text-slate-900 hover:bg-slate-300",
-                      !active && isLimitReached ? "opacity-50" : "",
                     ].join(" ")}
                   >
-                    {giftLabel(gift)}
+                    {gift.image ? (
+                      <Image src={gift.image} alt="gift" width={40} height={40} />
+                    ) : (
+                      gift.label
+                    )}
                   </button>
                 </div>
               );

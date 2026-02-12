@@ -41,7 +41,7 @@ export default function Home() {
                   : "opacity-0 translate-y-2",
               ].join(" ")}
             >
-              Ти маєш вибрати <br />
+              Ти маєш обрати <br />
               <span className="text-red-500">3</span> з 10 подарунків,
               <br />
               яких ти отримаєш сьогодні.

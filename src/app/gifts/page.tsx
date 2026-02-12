@@ -3,9 +3,12 @@
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
+import { gifts } from "@/lib/gifts";
 
 const CHOSEN_GIFT_CLASS =
   "h-14 w-30 rounded-2xl text-lg bg-indigo-600 text-white flex items-center justify-center";
+
+const giftById = Object.fromEntries(gifts.map((gift) => [gift.id, gift]));
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -26,29 +29,37 @@ export default function Home() {
           {chosen.length === 0 ? (
             <p className="text-lg">Нічого не обрано.</p>
           ) : (
-            <div
-              className="flex gap-6 flex-wrap justify-center
-            mt-10"
-            >
-              {chosen.map((g) => (
-                <div key={g} className={CHOSEN_GIFT_CLASS}>
-                  {g}
-                </div>
-              ))}
+            <div className="flex gap-6 flex-wrap justify-center mt-10">
+              {chosen.map((giftId) => {
+                const gift = giftById[giftId];
+
+                return (
+                  <div key={giftId} className={CHOSEN_GIFT_CLASS}>
+                    {gift?.image ? (
+                      <Image src={gift.image} alt="gift" width={30} height={30} />
+                    ) : (
+                      gift?.label ?? giftId
+                    )}
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>
-        <h1 className="text-4xl font-semibold text-center mt-20">Хочеш змінити вибір?</h1>
+
+        <h1 className="text-4xl font-semibold text-center mt-20">
+          Хочеш змінити вибір?
+        </h1>
         <div className="flex justify-center gap-5 mt-10">
           <button
             onClick={() => router.push("/choose-gift")}
-            className="w-50 h-15  rounded-2xl text-3xl text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition cursor-pointer"
+            className="w-50 h-15 rounded-2xl text-3xl text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition cursor-pointer"
           >
             Так
           </button>
           <button
-            onClick={() => router.push("/")}
-            className="w-50 h-15  rounded-2xl text-3xl text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition cursor-pointer"
+            onClick={() => router.push("/finish")}
+            className="w-50 h-15 rounded-2xl text-3xl text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition cursor-pointer"
           >
             Ні
           </button>

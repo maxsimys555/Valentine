@@ -72,7 +72,7 @@ export default function Home() {
                     : "opacity-0 translate-y-2",
                 ].join(" ")}
               >
-                вибрати собі подарунок!
+                обрати собі подарунок!
               </h1>
             </div>
             <div className="flex justify-center gap-5 mt-15">
@@ -86,7 +86,7 @@ export default function Home() {
                     : "opacity-0 translate-y-12 pointer-events-none",
                 ].join(" ")}
               >
-                Вибрати подарунок
+                Обрати подарунок
               </button>
             </div>
           </div>

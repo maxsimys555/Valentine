@@ -20,10 +20,10 @@ export default function GoodbyePage() {
           <div className="flex flex-col justify-center items-center mt-10">
             <h1 className="text-6xl font-semibold text-slate-900">Чудово! </h1>
             <h1 className="text-5xl font-semibold text-slate-900 mt-10">
-              Ну тоді до зустрічі!
+              Ну, тоді до зустрічі!
             </h1>
             <h1 className="text-3xl font-semibold text-slate-900">
-              (Повезло мені в цьому році)
+              (Пощастило мені в цьому році)
             </h1>
           </div>
           <div className="flex justify-center gap-5 mt-10">
