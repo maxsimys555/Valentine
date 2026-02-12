@@ -1,9 +1,10 @@
 "use client";
 
+import AppButton from "@/components/buttons/AppButton";
+import { gifts } from "@/lib/gifts";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
-import { gifts } from "@/lib/gifts";
 
 const CHOSEN_GIFT_CLASS =
   "h-14 w-30 rounded-2xl text-lg bg-indigo-600 text-white flex items-center justify-center";
@@ -47,22 +48,20 @@ export default function Home() {
           )}
         </div>
 
-        <h1 className="text-4xl font-semibold text-center mt-20">
-          Хочеш змінити вибір?
-        </h1>
+        <h1 className="text-4xl font-semibold text-center mt-20">Хочеш змінити вибір?</h1>
         <div className="flex justify-center gap-5 mt-10">
-          <button
+          <AppButton
             onClick={() => router.push("/choose-gift")}
-            className="w-50 h-15 rounded-2xl text-3xl text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition cursor-pointer"
+            className="w-50 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700"
           >
             Так
-          </button>
-          <button
+          </AppButton>
+          <AppButton
             onClick={() => router.push("/finish")}
-            className="w-50 h-15 rounded-2xl text-3xl text-white bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition cursor-pointer"
+            className="w-50 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700"
           >
             Ні
-          </button>
+          </AppButton>
         </div>
 
         <div className="flex justify-between mt-8">

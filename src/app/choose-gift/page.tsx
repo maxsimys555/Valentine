@@ -1,14 +1,16 @@
 "use client";
 
+import AppButton from "@/components/buttons/AppButton";
+import { gifts } from "@/lib/gifts";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { gifts } from "@/lib/gifts";
 
 const MAX = 3;
 const RETURN_DELAY_MS = 450;
 const TRANSITION_MS = 250;
 const DEFAULT_OFFSET = { x: 0, y: 0 };
+
 const BASE_GIFT_BUTTON_CLASS =
   "h-14 w-30 rounded-2xl text-lg cursor-pointer transition-all duration-300 flex items-center justify-center text-center";
 
@@ -166,18 +168,18 @@ export default function Home() {
           </div>
 
           <div className="flex justify-center gap-5 mt-15">
-            <button
+            <AppButton
               onClick={goNext}
               disabled={selected.length === 0}
               className={[
-                "h-14 px-6 rounded-2xl text-lg transition-all cursor-pointer",
+                "h-14 px-6 text-lg",
                 selected.length === 0
                   ? "bg-slate-300 text-slate-600 cursor-not-allowed"
-                  : "bg-emerald-600 text-white hover:bg-emerald-700",
+                  : "bg-emerald-600 hover:bg-emerald-700",
               ].join(" ")}
             >
               Отримати
-            </button>
+            </AppButton>
           </div>
         </div>
 
