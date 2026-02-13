@@ -18,12 +18,12 @@ export default function GiftsClient() {
   return (
     <div>
       <div>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center text-slate-900">
           Твій вибір:
         </h1>
 
         {chosen.length === 0 ? (
-          <p className="text-lg">Нічого не обрано.</p>
+          <p className="text-lg text-slate-900">Нічого не обрано.</p>
         ) : (
           <div className="flex gap-4 sm:gap-6 flex-wrap justify-center mt-6 sm:mt-10 text-center">
             {chosen.map((giftId) => {
@@ -49,7 +49,7 @@ export default function GiftsClient() {
         )}
       </div>
 
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center mt-12 sm:mt-18">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center text-slate-900 mt-12 sm:mt-18">
         Хочеш змінити вибір?
       </h1>
       <div className="flex px-4 justify-center gap-4 sm:gap-5 mt-6 sm:mt-10">
