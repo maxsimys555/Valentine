@@ -30,28 +30,43 @@ export default function ProgressiveImage({
   onStageChange,
   visibleStage,
 }: ProgressiveImageProps) {
-  const [loadedStage, setLoadedStage] = useState(-1);
+  const [overlayStage, setOverlayStage] = useState(-1);
   const [maxRequestedIndex, setMaxRequestedIndex] = useState(0);
 
   useEffect(() => {
-    onStageChange?.(loadedStage);
-  }, [loadedStage, onStageChange]);
+    const fullStage = overlayStage < 0 ? 0 : overlayStage + 1;
+    onStageChange?.(fullStage);
+  }, [overlayStage, onStageChange]);
 
   if (!sources || sources.length === 0) return null;
 
-  const stageToShow = visibleStage ?? loadedStage;
-  const resolvedStageToShow = stageToShow < 0 ? 0 : stageToShow;
-  const requestedSources = sources.slice(0, maxRequestedIndex + 1);
+  const baseSrc = sources[0];
+  const overlaySources = sources.slice(1);
+  const stageToShow = visibleStage ?? (overlayStage < 0 ? 0 : overlayStage + 1);
+  const overlayStageToShow = stageToShow - 1;
+  const requestedSources = overlaySources.slice(0, maxRequestedIndex + 1);
 
   const handleLoad = (index: number) => {
-    setLoadedStage((prev) => (index > prev ? index : prev));
-    if (index === maxRequestedIndex && index < sources.length - 1) {
+    setOverlayStage((prev) => (index > prev ? index : prev));
+    if (index === maxRequestedIndex && index < overlaySources.length - 1) {
       setMaxRequestedIndex(index + 1);
     }
   };
 
   return (
     <div className={wrapClassName}>
+      <Image
+        src={baseSrc}
+        alt={alt}
+        width={width}
+        height={height}
+        loading="eager"
+        fetchPriority={priority ? "high" : "auto"}
+        priority={priority}
+        sizes={sizes}
+        quality={quality}
+        className={className}
+      />
       {requestedSources.map((src, index) => (
         <Image
           key={`${src}-${index}`}
@@ -59,16 +74,15 @@ export default function ProgressiveImage({
           alt={alt}
           width={width}
           height={height}
-          loading={index === 0 ? "eager" : "lazy"}
-          fetchPriority={index === 0 && priority ? "high" : "auto"}
-          priority={index === 0 && priority}
+          loading="lazy"
+          fetchPriority="auto"
           sizes={sizes}
           quality={quality}
           onLoadingComplete={() => handleLoad(index)}
           onError={() => handleLoad(index)}
           className={[
             "absolute inset-0 transition-opacity duration-200",
-            index <= resolvedStageToShow ? "opacity-100" : "opacity-0",
+            index <= overlayStageToShow ? "opacity-100" : "opacity-0",
             className,
           ]
             .filter(Boolean)
