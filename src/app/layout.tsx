@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Metadata } from "next";
 import ReduxProvider from "@/store/Provider";
 import TitleFromRedux from "@/components/TitleFromRedux";
 import NameBootstrapper from "@/components/NameBootstrapper";
@@ -13,21 +13,14 @@ export const metadata: Metadata = {
     icon: "/Love.webp",
   },
 };
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  viewportFit: "cover",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="min-h-full">
-      <body className="min-h-full bg-transparent">
+    <html lang="en">
+      <body className="min-h-screen bg-linear-to-br from-blue-500 via-red-500 to-purple-600">
         <ReduxProvider>
           <Suspense fallback={null}>
             <NameBootstrapper />
@@ -39,3 +32,4 @@ export default function RootLayout({
     </html>
   );
 }
+
