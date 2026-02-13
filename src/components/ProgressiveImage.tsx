@@ -40,6 +40,7 @@ export default function ProgressiveImage({
   if (!sources || sources.length === 0) return null;
 
   const stageToShow = visibleStage ?? loadedStage;
+  const resolvedStageToShow = stageToShow < 0 ? 0 : stageToShow;
   const requestedSources = sources.slice(0, maxRequestedIndex + 1);
 
   const handleLoad = (index: number) => {
@@ -67,7 +68,7 @@ export default function ProgressiveImage({
           onError={() => handleLoad(index)}
           className={[
             "absolute inset-0 transition-opacity duration-200",
-            index <= stageToShow ? "opacity-100" : "opacity-0",
+            index <= resolvedStageToShow ? "opacity-100" : "opacity-0",
             className,
           ]
             .filter(Boolean)
