@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import NavigationLoaderProvider from "@/components/NavigationLoader/NavigationLoaderProvider";
+import ReduxProvider from "@/store/Provider";
 
 import "./globals.css";
 
@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Max Valentine for Angelika",
   description: "Valentines Day",
   icons: {
-    icon: "/Love.jpg",
+    icon: "/Love.webp",
   },
 };
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen bg-linear-to-br from-blue-500 via-red-500 to-purple-600">
-        <NavigationLoaderProvider>{children}</NavigationLoaderProvider>
+        <ReduxProvider>{children}</ReduxProvider>
       </body>
     </html>
   );

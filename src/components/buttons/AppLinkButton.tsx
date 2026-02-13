@@ -2,7 +2,6 @@
 
 import Link, { LinkProps } from "next/link";
 import { MouseEvent, ReactNode } from "react";
-import { useNavigationLoader } from "@/components/NavigationLoader/NavigationLoaderProvider";
 
 type AppLinkButtonProps = LinkProps & {
   children: ReactNode;
@@ -20,15 +19,12 @@ export default function AppLinkButton({
   onClick,
   ...props
 }: AppLinkButtonProps) {
-  const { startLoading } = useNavigationLoader();
-
   const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
     if (disabled) {
       event.preventDefault();
       event.stopPropagation();
       return;
     }
-    startLoading();
     onClick?.(event);
   };
 

@@ -29,7 +29,7 @@ export default function Home() {
               height={150}
               wrapClassName="relative w-[150px] h-[150px]"
             />
-            <Image src="/Love.jpg" alt="emoji" width={150} height={150} />
+            <Image src="/Love.webp" alt="emoji" width={150} height={150} />
           </div>
           <div className="flex justify-center gap-5 mt-15">
             <AppButton className="w-60 h-17 text-2xl bg-indigo-600 hover:bg-indigo-700">

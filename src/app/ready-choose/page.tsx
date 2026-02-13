@@ -4,11 +4,14 @@ import AppLinkButton from "@/components/buttons/AppLinkButton";
 import ImagePair from "@/components/ImagePair/ImagePair";
 import { getProgressiveSources } from "@/lib/images";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/store/store";
 
 export default function Home() {
   const [showText1, setShowText1] = useState(false);
   const [showText2, setShowText2] = useState(false);
   const [showBtn, setShowBtn] = useState(false);
+  const name = useSelector((state: RootState) => state.name.value);
 
   useEffect(() => {
     const t2 = setTimeout(() => setShowText1(true), 300);
@@ -35,11 +38,11 @@ export default function Home() {
             <h1
               className={[
                 "text-4xl font-semibold text-slate-900 text-center",
-                "transition-all duration-800 ease-out mt-5",
+                "transition-all duration-800 ease-out mt-3",
                 showText1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
               ].join(" ")}
             >
-              Ти маєш обрати <br />
+              {name}, <br />Ти маєш обрати <br />
               <span className="text-red-500">3</span> з 10 подарунків,
               <br />
               яких ти отримаєш сьогодні.
@@ -47,7 +50,7 @@ export default function Home() {
             <h1
               className={[
                 "text-4xl font-semibold text-slate-900 text-center",
-                "transition-all duration-800 ease-out mt-20",
+                "transition-all duration-800 ease-out mt-15",
                 showText2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
               ].join(" ")}
             >
