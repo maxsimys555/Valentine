@@ -3,7 +3,7 @@
 import { useSelector } from "react-redux";
 import type { RootState } from "@/store/store";
 
-const FALLBACK_NAME = "Принцесо";
+const FALLBACK_NAME = "Кохана";
 
 export default function NameFromQuery() {
   const name = useSelector((state: RootState) => state.name.value);
