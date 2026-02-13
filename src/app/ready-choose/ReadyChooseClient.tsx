@@ -11,7 +11,7 @@ export default function ReadyChooseClient() {
   const [showText2, setShowText2] = useState(false);
   const [showBtn, setShowBtn] = useState(false);
   const name = useSelector((state: RootState) => state.name.value);
-  const displayName = name?.trim() ? name.trim() : "Любима";
+  const displayName = name?.trim() ? name.trim() : "Принцесо";
 
   useEffect(() => {
     const t2 = setTimeout(() => setShowText1(true), 300);
