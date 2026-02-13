@@ -17,6 +17,12 @@ body {
   height: 100%;
 }
 
+html {
+  background: linear-gradient(135deg, #3b82f6 0%, #ef4444 50%, #9333ea 100%);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
 *,
 *::before,
 *::after {
@@ -26,9 +32,16 @@ body {
 body {
   margin: 0;
   background-color: transparent;
+  min-height: 100dvh;
   color: var(--foreground);
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   overflow-x: hidden;
+}
+
+@supports (height: 100svh) {
+  body {
+    min-height: 100svh;
+  }
 }
 
 @keyframes delayed-reveal {
