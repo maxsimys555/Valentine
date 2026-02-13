@@ -74,8 +74,8 @@ export default function ProgressiveImage({
           alt={alt}
           width={width}
           height={height}
-          loading="lazy"
-          fetchPriority="auto"
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : "auto"}
           sizes={sizes}
           quality={quality}
           onLoadingComplete={() => handleLoad(index)}

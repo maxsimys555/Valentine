@@ -9,7 +9,9 @@ export default function WavingHand() {
         alt="hand"
         width={60}
         height={60}
-        loading="lazy"
+        loading="eager"
+        fetchPriority="high"
+        priority
         sizes="60px"
         className={`w-15 h-15 ${styles.wave}`}
         draggable={false}

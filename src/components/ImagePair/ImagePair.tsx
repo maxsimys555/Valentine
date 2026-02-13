@@ -29,7 +29,7 @@ export default function ImagePair({
   className = "",
   leftAlt = "emoji",
   rightAlt = "emoji",
-  priority = false,
+  priority = true,
   sync = false,
 }: ImagePairProps) {
   const resolvedLeftSources = useMemo(
