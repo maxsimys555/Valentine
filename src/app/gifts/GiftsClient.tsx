@@ -9,7 +9,7 @@ import { getProgressiveSources } from "@/lib/images";
 import { useSearchParams } from "next/navigation";
 
 const CHOSEN_GIFT_CLASS =
-  "h-14 w-30 rounded-2xl text-lg bg-indigo-600 text-white flex items-center justify-center";
+  "h-14 w-30 rounded-2xl text-lg bg-rose-300 text-rose-950 flex items-center justify-center";
 
 const giftById = Object.fromEntries(gifts.map((gift) => [gift.id, gift]));
 
