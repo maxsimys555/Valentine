@@ -1,11 +1,11 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+﻿import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type NameState = {
   value: string;
 };
 
 const initialState: NameState = {
-  value: "Любима",
+  value: "",
 };
 
 const nameSlice = createSlice({
@@ -20,3 +20,4 @@ const nameSlice = createSlice({
 
 export const { setName } = nameSlice.actions;
 export default nameSlice.reducer;
+

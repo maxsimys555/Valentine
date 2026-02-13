@@ -2,6 +2,7 @@
 
 import AppLinkButton from "@/components/buttons/AppLinkButton";
 import ImagePair from "@/components/ImagePair/ImagePair";
+import CenteredCard from "@/components/layout/CenteredCard";
 import { getProgressiveSources } from "@/lib/images";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -26,61 +27,57 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
-      <div className="w-145 h-170 rounded-4xl bg-rose-50">
-        <ImagePair
-          leftSources={getProgressiveSources("/smile10.webp")}
-          rightSources={getProgressiveSources("/smile10.webp")}
-          priority
-        />
-        <div>
-          <div className="flex flex-col text-center justify-center">
-            <h1
-              className={[
-                "text-4xl font-semibold text-slate-900 text-center",
-                "transition-all duration-800 ease-out mt-3",
-                showText1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
-              ].join(" ")}
-            >
-              {name}, <br />Ти маєш обрати <br />
-              <span className="text-red-500">3</span> з 10 подарунків,
-              <br />
-              яких ти отримаєш сьогодні.
-            </h1>
-            <h1
-              className={[
-                "text-4xl font-semibold text-slate-900 text-center",
-                "transition-all duration-800 ease-out mt-15",
-                showText2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
-              ].join(" ")}
-            >
-              Готова зробити вибір?
-            </h1>
-          </div>
-          <div className="flex justify-center gap-5 mt-15">
-            <AppLinkButton
-              href="/choose-gift"
-              prefetch
-              className={[
-                "w-75 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700",
-                "transition-all duration-500 ease-out",
-                showBtn
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-12 pointer-events-none",
-              ].join(" ")}
-            >
-              Готова
-            </AppLinkButton>
-          </div>
+    <CenteredCard>
+      <ImagePair
+        leftSources={getProgressiveSources("/smile10.webp")}
+        rightSources={getProgressiveSources("/smile10.webp")}
+        priority
+      />
+      <div>
+        <div className="flex flex-col text-center justify-center">
+          <h1
+            className={[
+              "text-4xl font-semibold text-slate-900 text-center",
+              "transition-all duration-800 ease-out mt-3",
+              showText1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
+            ].join(" ")}
+          >
+            {name}, <br />Ти маєш обрати <br />
+            <span className="text-red-500">3</span> з 10 подарунків,
+            <br />
+            яких ти отримаєш сьогодні.
+          </h1>
+          <h1
+            className={[
+              "text-4xl font-semibold text-slate-900 text-center",
+              "transition-all duration-800 ease-out mt-15",
+              showText2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
+            ].join(" ")}
+          >
+            Готова зробити вибір?
+          </h1>
         </div>
-        <ImagePair
-          leftSources={getProgressiveSources("/smile10.webp")}
-          rightSources={getProgressiveSources("/smile10.webp")}
-        />
+        <div className="flex justify-center gap-5 mt-15">
+          <AppLinkButton
+            href="/choose-gift"
+            prefetch
+            className={[
+              "w-75 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700",
+              "transition-all duration-500 ease-out",
+              showBtn
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-12 pointer-events-none",
+            ].join(" ")}
+          >
+            Готова
+          </AppLinkButton>
+        </div>
       </div>
-    </div>
+      <ImagePair
+        leftSources={getProgressiveSources("/smile10.webp")}
+        rightSources={getProgressiveSources("/smile10.webp")}
+      />
+    </CenteredCard>
   );
 }
-
-
 

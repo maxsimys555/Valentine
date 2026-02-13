@@ -2,6 +2,7 @@
 
 import AppLinkButton from "@/components/buttons/AppLinkButton";
 import ImagePair from "@/components/ImagePair/ImagePair";
+import CenteredCard from "@/components/layout/CenteredCard";
 import { getProgressiveSources } from "@/lib/images";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
@@ -33,69 +34,65 @@ export default function Home() {
   return (
     <div>
       <FireworksOnLoad durationMs={2000} />
-      <div className="flex flex-col justify-center items-center h-screen">
-        <div className="w-145 h-170 rounded-4xl bg-rose-50">
-          <ImagePair
-            leftSources={getProgressiveSources("/smile19.webp")}
-            rightSources={getProgressiveSources("/smile19.webp")}
-            priority
-          />
-          <div>
-            <div className="flex flex-col gap-5 justify-center">
-              <h1
-                className={[
-                  "text-5xl font-semibold text-slate-900 text-center",
-                  "transition-all duration-500 ease-out",
-                  showTitle ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
-                ].join(" ")}
-              >
-                Правильно!
-              </h1>
-              <h1
-                className={[
-                  "text-4xl font-semibold text-slate-900 text-center",
-                  "transition-all duration-800 ease-out mt-5",
-                  showText1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
-                ].join(" ")}
-              >
-                І сьогодні, у тебе є можливість,
-              </h1>
-              <h1
-                className={[
-                  "text-4xl font-semibold text-slate-900 text-center",
-                  "transition-all duration-800 ease-out mt-2",
-                  showText2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
-                ].join(" ")}
-              >
-                обрати собі подарунок!
-              </h1>
-            </div>
-            <div className="flex justify-center gap-5 mt-15">
-              <AppLinkButton
-                href="/ready-choose"
-                prefetch
-                className={[
-                  "w-75 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700",
-                  "transition-all duration-500 ease-out",
-                  showBtn
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-12 pointer-events-none",
-                ].join(" ")}
-              >
-                Обрати подарунок
-              </AppLinkButton>
-            </div>
+      <CenteredCard>
+        <ImagePair
+          leftSources={getProgressiveSources("/smile19.webp")}
+          rightSources={getProgressiveSources("/smile19.webp")}
+          priority
+        />
+        <div>
+          <div className="flex flex-col gap-5 justify-center">
+            <h1
+              className={[
+                "text-5xl font-semibold text-slate-900 text-center",
+                "transition-all duration-500 ease-out",
+                showTitle ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
+              ].join(" ")}
+            >
+              Правильно!
+            </h1>
+            <h1
+              className={[
+                "text-4xl font-semibold text-slate-900 text-center",
+                "transition-all duration-800 ease-out mt-5",
+                showText1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
+              ].join(" ")}
+            >
+              І сьогодні, у тебе є можливість,
+            </h1>
+            <h1
+              className={[
+                "text-4xl font-semibold text-slate-900 text-center",
+                "transition-all duration-800 ease-out mt-2",
+                showText2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
+              ].join(" ")}
+            >
+              обрати собі подарунок!
+            </h1>
           </div>
-          <ImagePair
-            leftSources={getProgressiveSources("/smile19.webp")}
-            rightSources={getProgressiveSources("/smile19.webp")}
-            className="mt-17"
-          />
+          <div className="flex justify-center gap-5 mt-15">
+            <AppLinkButton
+              href="/ready-choose"
+              prefetch
+              className={[
+                "w-75 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700",
+                "transition-all duration-500 ease-out",
+                showBtn
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-12 pointer-events-none",
+              ].join(" ")}
+            >
+              Обрати подарунок
+            </AppLinkButton>
+          </div>
         </div>
-      </div>
+        <ImagePair
+          leftSources={getProgressiveSources("/smile19.webp")}
+          rightSources={getProgressiveSources("/smile19.webp")}
+          className="mt-17"
+        />
+      </CenteredCard>
     </div>
   );
 }
-
-
 

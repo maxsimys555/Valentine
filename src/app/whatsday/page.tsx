@@ -2,71 +2,68 @@
 
 import AppLinkButton from "@/components/buttons/AppLinkButton";
 import ImagePair from "@/components/ImagePair/ImagePair";
+import CenteredCard from "@/components/layout/CenteredCard";
 import { getProgressiveSources } from "@/lib/images";
 
 export default function Home() {
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
-      <div className="w-145 h-170 rounded-4xl bg-rose-50">
-        <ImagePair
-          leftSources={getProgressiveSources("/smile6.webp")}
-          rightSources={getProgressiveSources("/smile6.webp")}
-          priority
-        />
+    <CenteredCard>
+      <ImagePair
+        leftSources={getProgressiveSources("/smile6.webp")}
+        rightSources={getProgressiveSources("/smile6.webp")}
+        priority
+      />
 
-        <div className="flex justify-center mt-15">
-          <h1 className="text-5xl font-semibold text-slate-900">Який сьогодні день?</h1>
-        </div>
-
-        <div className="flex justify-center gap-5 mt-15">
-          <AppLinkButton
-            href="/notdays-mikolay"
-            prefetch
-            className="p-2 text-2xl bg-indigo-600 hover:bg-indigo-700"
-          >
-            Миколайчик
-          </AppLinkButton>
-          <AppLinkButton
-            href="/notdays-8march"
-            prefetch
-            className="p-2 text-2xl bg-indigo-600 hover:bg-indigo-700"
-          >
-            8 Березня
-          </AppLinkButton>
-          <AppLinkButton
-            href="/notdays-max"
-            prefetch
-            className="p-2 text-2xl bg-indigo-600 hover:bg-indigo-700"
-          >
-            Максима
-          </AppLinkButton>
-        </div>
-        <div className="flex justify-center gap-5 mt-10">
-          <AppLinkButton
-            href="/second"
-            prefetch
-            className="p-2 text-2xl bg-indigo-600 hover:bg-indigo-700"
-          >
-            День святого Валентина
-          </AppLinkButton>
-          <AppLinkButton
-            href="/notdays-smm"
-            prefetch
-            className="p-2 text-2xl bg-indigo-600 hover:bg-indigo-700"
-          >
-            День святого SMM
-          </AppLinkButton>
-        </div>
-
-        <ImagePair
-          leftSources={getProgressiveSources("/smile6.webp")}
-          rightSources={getProgressiveSources("/smile6.webp")}
-          className="mt-20"
-        />
+      <div className="flex justify-center mt-15">
+        <h1 className="text-5xl font-semibold text-slate-900">Який сьогодні день?</h1>
       </div>
-    </div>
+
+      <div className="flex justify-center gap-5 mt-15">
+        <AppLinkButton
+          href="/notdays-mikolay"
+          prefetch
+          className="p-2 text-2xl bg-indigo-600 hover:bg-indigo-700"
+        >
+          Миколайчик
+        </AppLinkButton>
+        <AppLinkButton
+          href="/notdays-8march"
+          prefetch
+          className="p-2 text-2xl bg-indigo-600 hover:bg-indigo-700"
+        >
+          8 Березня
+        </AppLinkButton>
+        <AppLinkButton
+          href="/notdays-max"
+          prefetch
+          className="p-2 text-2xl bg-indigo-600 hover:bg-indigo-700"
+        >
+          Максима
+        </AppLinkButton>
+      </div>
+      <div className="flex justify-center gap-5 mt-10">
+        <AppLinkButton
+          href="/second"
+          prefetch
+          className="p-2 text-2xl bg-indigo-600 hover:bg-indigo-700"
+        >
+          День святого Валентина
+        </AppLinkButton>
+        <AppLinkButton
+          href="/notdays-smm"
+          prefetch
+          className="p-2 text-2xl bg-indigo-600 hover:bg-indigo-700"
+        >
+          День святого SMM
+        </AppLinkButton>
+      </div>
+
+      <ImagePair
+        leftSources={getProgressiveSources("/smile6.webp")}
+        rightSources={getProgressiveSources("/smile6.webp")}
+        className="mt-20"
+      />
+    </CenteredCard>
   );
 }
-
-
 
