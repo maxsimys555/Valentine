@@ -67,7 +67,7 @@ export default function ProgressiveImage({
           onError={() => handleLoad(index)}
           className={[
             "absolute inset-0 transition-opacity duration-200",
-            index === stageToShow ? "opacity-100" : "opacity-0",
+            index <= stageToShow ? "opacity-100" : "opacity-0",
             className,
           ]
             .filter(Boolean)

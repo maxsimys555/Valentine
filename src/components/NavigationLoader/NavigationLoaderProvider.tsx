@@ -1,7 +1,6 @@
 "use client";
 
-import { createContext, ReactNode, useCallback, useContext, useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { createContext, ReactNode, useCallback, useContext } from "react";
 
  type NavigationLoaderContextValue = {
    startLoading: () => void;
@@ -17,28 +16,12 @@ import { usePathname } from "next/navigation";
    return ctx;
  }
 
- export default function NavigationLoaderProvider({ children }: { children: ReactNode }) {
-  const [isLoading, setIsLoading] = useState(false);
-  const pathname = usePathname();
+export default function NavigationLoaderProvider({ children }: { children: ReactNode }) {
+  const startLoading = useCallback(() => {}, []);
 
-   const startLoading = useCallback(() => {
-     setIsLoading(true);
-   }, []);
-
-   useEffect(() => {
-     if (!isLoading) return;
-     const t = window.setTimeout(() => setIsLoading(false), 150);
-     return () => window.clearTimeout(t);
-  }, [pathname, isLoading]);
-
-   return (
-     <NavigationLoaderContext.Provider value={{ startLoading }}>
-       {children}
-       {isLoading ? (
-         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-sm">
-           <div className="h-14 w-14 rounded-full border-4 border-white/60 border-t-white animate-spin" />
-         </div>
-       ) : null}
-     </NavigationLoaderContext.Provider>
-   );
- }
+  return (
+    <NavigationLoaderContext.Provider value={{ startLoading }}>
+      {children}
+    </NavigationLoaderContext.Provider>
+  );
+}
