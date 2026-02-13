@@ -1,14 +1,14 @@
 ﻿import AppLinkButton from "@/components/buttons/AppLinkButton";
-import ImagePair from "@/components/ImagePair/ImagePair";
+import ImagePairServer from "@/components/ImagePair/ImagePairServer";
 import CenteredCard from "@/components/layout/CenteredCard";
 import { getProgressiveSources } from "@/lib/images";
 
 export default function Home() {
   return (
     <CenteredCard>
-      <ImagePair
-        leftSources={getProgressiveSources("/smile13.webp")}
-        rightSources={getProgressiveSources("/smile13.webp")}
+      <ImagePairServer
+        leftSrc="/smile13.webp"
+        rightSrc="/smile13.webp"
         priority
       />
       <div>
@@ -21,6 +21,7 @@ export default function Home() {
           <AppLinkButton
             href="/whatsday"
             prefetch
+            prefetchImages={getProgressiveSources("/smile6.webp")}
             className="w-50 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700"
           >
             Так
@@ -28,15 +29,20 @@ export default function Home() {
           <AppLinkButton
             href="/goodbye"
             prefetch
+            prefetchImages={[
+              ...getProgressiveSources("/smile5.webp"),
+              ...getProgressiveSources("/smile7.webp"),
+              ...getProgressiveSources("/smile8.webp"),
+            ]}
             className="w-50 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700"
           >
             Ні
           </AppLinkButton>
         </div>
       </div>
-      <ImagePair
-        leftSources={getProgressiveSources("/smile13.webp")}
-        rightSources={getProgressiveSources("/smile13.webp")}
+      <ImagePairServer
+        leftSrc="/smile13.webp"
+        rightSrc="/smile13.webp"
         className="mt-20"
       />
     </CenteredCard>

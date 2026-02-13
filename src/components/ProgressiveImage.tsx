@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { preloadImages } from "@/lib/images";
 
 type ProgressiveImageProps = {
   sources: string[];
@@ -37,6 +38,11 @@ export default function ProgressiveImage({
     const fullStage = overlayStage < 0 ? 0 : overlayStage + 1;
     onStageChange?.(fullStage);
   }, [overlayStage, onStageChange]);
+
+  useEffect(() => {
+    if (!priority) return;
+    preloadImages(sources);
+  }, [priority, sources]);
 
   if (!sources || sources.length === 0) return null;
 

@@ -1,5 +1,5 @@
 ﻿import WavingHand from "@/components/WavingHand/WavingHand";
-import ImagePair from "@/components/ImagePair/ImagePair";
+import ImagePairServer from "@/components/ImagePair/ImagePairServer";
 import { getProgressiveSources } from "@/lib/images";
 import NameFromQuery from "@/components/NameFromQuery";
 import type { Metadata } from "next";
@@ -28,9 +28,9 @@ export function generateMetadata({
 export default function Home() {
   return (
     <CenteredCard>
-      <ImagePair
-        leftSources={getProgressiveSources("/smile25.webp")}
-        rightSources={getProgressiveSources("/smile25.webp")}
+      <ImagePairServer
+        leftSrc="/smile25.webp"
+        rightSrc="/smile25.webp"
         priority
       />
       <div>
@@ -44,23 +44,21 @@ export default function Home() {
           <AppLinkButton
             href="/first"
             prefetch
+            prefetchImages={getProgressiveSources("/smile13.webp")}
             className="w-50 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700"
           >
             Привіт
           </AppLinkButton>
         </div>
       </div>
-      <ImagePair
-        leftSources={getProgressiveSources("/smile25.webp")}
-        rightSources={getProgressiveSources("/smile25.webp")}
+      <ImagePairServer
+        leftSrc="/smile25.webp"
+        rightSrc="/smile25.webp"
         className="mt-26"
       />
     </CenteredCard>
   );
 }
-
-
-
 
 
 

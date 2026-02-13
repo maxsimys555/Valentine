@@ -1,8 +1,6 @@
-﻿"use client";
+"use client";
 
 import AppLinkButton from "@/components/buttons/AppLinkButton";
-import ImagePair from "@/components/ImagePair/ImagePair";
-import CenteredCard from "@/components/layout/CenteredCard";
 import ProgressiveImage from "@/components/ProgressiveImage";
 import { gifts } from "@/lib/gifts";
 import { getProgressiveSources } from "@/lib/images";
@@ -100,12 +98,7 @@ export default function Home() {
   useEffect(() => clearTimers, []);
 
   return (
-    <CenteredCard>
-      <ImagePair
-        leftSources={getProgressiveSources("/smile13.webp")}
-        rightSources={getProgressiveSources("/smile13.webp")}
-        priority
-      />
+    <div>
 
       <div>
         <div className="text-xl text-center font-semibold text-slate-900">
@@ -179,6 +172,7 @@ export default function Home() {
           <AppLinkButton
             href={nextHref}
             prefetch
+            prefetchImages={getProgressiveSources("/smile20.webp")}
             disabled={selected.length === 0}
             className={[
               "h-14 px-6 text-lg",
@@ -191,12 +185,7 @@ export default function Home() {
           </AppLinkButton>
         </div>
       </div>
-
-      <ImagePair
-        leftSources={getProgressiveSources("/smile13.webp")}
-        rightSources={getProgressiveSources("/smile13.webp")}
-      />
-    </CenteredCard>
+    </div>
   );
 }
 

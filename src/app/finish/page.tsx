@@ -1,7 +1,5 @@
-﻿"use client";
-
 import AppButton from "@/components/buttons/AppButton";
-import ImagePair from "@/components/ImagePair/ImagePair";
+import ImagePairServer from "@/components/ImagePair/ImagePairServer";
 import CenteredCard from "@/components/layout/CenteredCard";
 import ProgressiveImage from "@/components/ProgressiveImage";
 import Image from "next/image";
@@ -10,9 +8,9 @@ import { getProgressiveSources } from "@/lib/images";
 export default function Home() {
   return (
     <CenteredCard>
-      <ImagePair
-        leftSources={getProgressiveSources("/smile12.webp")}
-        rightSources={getProgressiveSources("/smile12.webp")}
+      <ImagePairServer
+        leftSrc="/smile12.webp"
+        rightSrc="/smile12.webp"
         priority
       />
       <div>
@@ -37,9 +35,9 @@ export default function Home() {
           </AppButton>
         </div>
       </div>
-      <ImagePair
-        leftSources={getProgressiveSources("/smile12.webp")}
-        rightSources={getProgressiveSources("/smile12.webp")}
+      <ImagePairServer
+        leftSrc="/smile12.webp"
+        rightSrc="/smile12.webp"
       />
     </CenteredCard>
   );

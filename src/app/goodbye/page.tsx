@@ -1,19 +1,9 @@
-﻿"use client";
-
-import AppLinkButton from "@/components/buttons/AppLinkButton";
+﻿import AppLinkButton from "@/components/buttons/AppLinkButton";
 import CenteredCard from "@/components/layout/CenteredCard";
 import ProgressiveImage from "@/components/ProgressiveImage";
 import { getProgressiveSources } from "@/lib/images";
-import { useEffect, useState } from "react";
 
 export default function GoodbyePage() {
-  const [showRetry, setShowRetry] = useState(false);
-
-  useEffect(() => {
-    const t = window.setTimeout(() => setShowRetry(true), 5000);
-    return () => window.clearTimeout(t);
-  }, []);
-
   return (
     <CenteredCard>
       <div className="flex flex-col">
@@ -47,9 +37,7 @@ export default function GoodbyePage() {
             className={[
               "flex flex-col justify-center items-center",
               "transition-all duration-700 ease-out",
-              showRetry
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4 pointer-events-none",
+              "delayed-reveal-5s",
             ].join(" ")}
           >
             <h1 className="text-3xl font-semibold text-slate-900">
@@ -66,6 +54,7 @@ export default function GoodbyePage() {
             <AppLinkButton
               href="/first"
               prefetch
+              prefetchImages={getProgressiveSources("/smile13.webp")}
               className="w-70 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700"
             >
               Реабілітуватись
@@ -76,4 +65,3 @@ export default function GoodbyePage() {
     </CenteredCard>
   );
 }
-

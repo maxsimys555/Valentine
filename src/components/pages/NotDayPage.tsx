@@ -1,8 +1,6 @@
-﻿"use client";
-
 import type { ReactNode } from "react";
 import AppLinkButton from "@/components/buttons/AppLinkButton";
-import ImagePair from "@/components/ImagePair/ImagePair";
+import ImagePairServer from "@/components/ImagePair/ImagePairServer";
 import CenteredCard from "@/components/layout/CenteredCard";
 import { getProgressiveSources } from "@/lib/images";
 
@@ -19,9 +17,9 @@ export default function NotDayPage({
 }: NotDayPageProps) {
   return (
     <CenteredCard>
-      <ImagePair
-        leftSources={getProgressiveSources(imageSrc)}
-        rightSources={getProgressiveSources(imageSrc)}
+      <ImagePairServer
+        leftSrc={imageSrc}
+        rightSrc={imageSrc}
         priority
       />
 
@@ -33,14 +31,15 @@ export default function NotDayPage({
         <AppLinkButton
           href="/whatsday"
           prefetch
+          prefetchImages={getProgressiveSources("/smile6.webp")}
           className="py-1 px-2 text-2xl bg-indigo-600 hover:bg-indigo-700 hover:text-red-400"
         >
           Спробувати ще раз
         </AppLinkButton>
       </div>
-      <ImagePair
-        leftSources={getProgressiveSources(imageSrc)}
-        rightSources={getProgressiveSources(imageSrc)}
+      <ImagePairServer
+        leftSrc={imageSrc}
+        rightSrc={imageSrc}
         className={bottomImageClassName}
       />
     </CenteredCard>

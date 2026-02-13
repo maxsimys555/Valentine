@@ -1,16 +1,14 @@
-﻿"use client";
-
 import AppLinkButton from "@/components/buttons/AppLinkButton";
-import ImagePair from "@/components/ImagePair/ImagePair";
+import ImagePairServer from "@/components/ImagePair/ImagePairServer";
 import CenteredCard from "@/components/layout/CenteredCard";
 import { getProgressiveSources } from "@/lib/images";
 
 export default function Home() {
   return (
     <CenteredCard>
-      <ImagePair
-        leftSources={getProgressiveSources("/smile6.webp")}
-        rightSources={getProgressiveSources("/smile6.webp")}
+      <ImagePairServer
+        leftSrc="/smile6.webp"
+        rightSrc="/smile6.webp"
         priority
       />
 
@@ -22,6 +20,7 @@ export default function Home() {
         <AppLinkButton
           href="/notdays-mikolay"
           prefetch
+          prefetchImages={getProgressiveSources("/smile9.webp")}
           className="p-2 text-2xl bg-indigo-600 hover:bg-indigo-700"
         >
           Миколайчик
@@ -29,6 +28,7 @@ export default function Home() {
         <AppLinkButton
           href="/notdays-8march"
           prefetch
+          prefetchImages={getProgressiveSources("/smile9.webp")}
           className="p-2 text-2xl bg-indigo-600 hover:bg-indigo-700"
         >
           8 Березня
@@ -36,6 +36,7 @@ export default function Home() {
         <AppLinkButton
           href="/notdays-max"
           prefetch
+          prefetchImages={getProgressiveSources("/smile9.webp")}
           className="p-2 text-2xl bg-indigo-600 hover:bg-indigo-700"
         >
           Максима
@@ -45,6 +46,7 @@ export default function Home() {
         <AppLinkButton
           href="/second"
           prefetch
+          prefetchImages={getProgressiveSources("/smile19.webp")}
           className="p-2 text-2xl bg-indigo-600 hover:bg-indigo-700"
         >
           День святого Валентина
@@ -52,15 +54,16 @@ export default function Home() {
         <AppLinkButton
           href="/notdays-smm"
           prefetch
+          prefetchImages={getProgressiveSources("/smile9.webp")}
           className="p-2 text-2xl bg-indigo-600 hover:bg-indigo-700"
         >
           День святого SMM
         </AppLinkButton>
       </div>
 
-      <ImagePair
-        leftSources={getProgressiveSources("/smile6.webp")}
-        rightSources={getProgressiveSources("/smile6.webp")}
+      <ImagePairServer
+        leftSrc="/smile6.webp"
+        rightSrc="/smile6.webp"
         className="mt-20"
       />
     </CenteredCard>

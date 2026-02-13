@@ -1,12 +1,17 @@
 "use client";
 
 import Link, { LinkProps } from "next/link";
-import { MouseEvent, ReactNode } from "react";
+import { FocusEvent, MouseEvent, ReactNode, TouchEvent } from "react";
+import { preloadImages } from "@/lib/images";
 
 type AppLinkButtonProps = LinkProps & {
   children: ReactNode;
   className?: string;
   disabled?: boolean;
+  prefetchImages?: string[];
+  onMouseEnter?: (event: MouseEvent<HTMLAnchorElement>) => void;
+  onFocus?: (event: FocusEvent<HTMLAnchorElement>) => void;
+  onTouchStart?: (event: TouchEvent<HTMLAnchorElement>) => void;
 };
 
 const BASE_LINK_BUTTON_CLASS =
@@ -17,8 +22,17 @@ export default function AppLinkButton({
   className = "",
   disabled = false,
   onClick,
+  onMouseEnter,
+  onFocus,
+  onTouchStart,
+  prefetchImages,
   ...props
 }: AppLinkButtonProps) {
+  const handlePrefetch = () => {
+    if (!prefetchImages || prefetchImages.length === 0) return;
+    preloadImages(prefetchImages);
+  };
+
   const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
     if (disabled) {
       event.preventDefault();
@@ -26,6 +40,21 @@ export default function AppLinkButton({
       return;
     }
     onClick?.(event);
+  };
+
+  const handleMouseEnter = (event: MouseEvent<HTMLAnchorElement>) => {
+    handlePrefetch();
+    onMouseEnter?.(event);
+  };
+
+  const handleFocus = (event: FocusEvent<HTMLAnchorElement>) => {
+    handlePrefetch();
+    onFocus?.(event);
+  };
+
+  const handleTouchStart = (event: TouchEvent<HTMLAnchorElement>) => {
+    handlePrefetch();
+    onTouchStart?.(event);
   };
 
   return (
@@ -40,6 +69,9 @@ export default function AppLinkButton({
       aria-disabled={disabled}
       tabIndex={disabled ? -1 : undefined}
       onClick={handleClick}
+      onMouseEnter={handleMouseEnter}
+      onFocus={handleFocus}
+      onTouchStart={handleTouchStart}
       {...props}
     >
       {children}

@@ -1,8 +1,6 @@
-﻿"use client";
+"use client";
 
 import AppLinkButton from "@/components/buttons/AppLinkButton";
-import ImagePair from "@/components/ImagePair/ImagePair";
-import CenteredCard from "@/components/layout/CenteredCard";
 import ProgressiveImage from "@/components/ProgressiveImage";
 import { gifts } from "@/lib/gifts";
 import { getProgressiveSources } from "@/lib/images";
@@ -18,12 +16,7 @@ export default function GiftsClient() {
   const chosen = searchParams.getAll("g");
 
   return (
-    <CenteredCard>
-      <ImagePair
-        leftSources={getProgressiveSources("/smile20.webp")}
-        rightSources={getProgressiveSources("/smile20.webp")}
-        priority
-      />
+    <div>
 
       <div>
         <h1 className="text-3xl font-semibold text-center">Твій вибір:</h1>
@@ -60,6 +53,7 @@ export default function GiftsClient() {
         <AppLinkButton
           href="/choose-gift"
           prefetch
+          prefetchImages={getProgressiveSources("/smile13.webp")}
           className="w-50 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700"
         >
           Так
@@ -67,18 +61,16 @@ export default function GiftsClient() {
         <AppLinkButton
           href="/finish"
           prefetch
+          prefetchImages={[
+            ...getProgressiveSources("/smile12.webp"),
+            ...getProgressiveSources("/smile22.webp"),
+            ...getProgressiveSources("/Love.webp"),
+          ]}
           className="w-50 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700"
         >
           Ні
         </AppLinkButton>
       </div>
-
-      <ImagePair
-        leftSources={getProgressiveSources("/smile20.webp")}
-        rightSources={getProgressiveSources("/smile20.webp")}
-        className="mt-8"
-      />
-    </CenteredCard>
+    </div>
   );
 }
-
