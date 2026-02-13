@@ -2,6 +2,7 @@
 
 import AppLinkButton from "@/components/buttons/AppLinkButton";
 import ImagePair from "@/components/ImagePair/ImagePair";
+import { getProgressiveSources } from "@/lib/images";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -24,7 +25,11 @@ export default function Home() {
   return (
     <div className="flex flex-col justify-center items-center h-screen">
       <div className="w-145 h-170 rounded-4xl bg-rose-50">
-        <ImagePair leftSrc="/smile10.webp" rightSrc="/smile10.webp"  priority />
+        <ImagePair
+          leftSources={getProgressiveSources("/smile10.webp")}
+          rightSources={getProgressiveSources("/smile10.webp")}
+          priority
+        />
         <div>
           <div className="flex flex-col text-center justify-center">
             <h1
@@ -65,7 +70,10 @@ export default function Home() {
             </AppLinkButton>
           </div>
         </div>
-        <ImagePair leftSrc="/smile10.webp" rightSrc="/smile10.webp" />
+        <ImagePair
+          leftSources={getProgressiveSources("/smile10.webp")}
+          rightSources={getProgressiveSources("/smile10.webp")}
+        />
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import Image from "next/image";
+import { useMemo, useState } from "react";
+import ProgressiveImage from "@/components/ProgressiveImage";
 
 type ImagePairProps = {
   leftSrc?: string;
@@ -18,65 +18,8 @@ type ImagePairProps = {
 const IMAGE_SIZES = "(min-width: 1024px) 150px, (min-width: 640px) 128px, 96px";
 const IMAGE_CLASS_NAME =
   "w-24 h-24 sm:w-32 sm:h-32 lg:w-[150px] lg:h-[150px] object-contain";
-const IMAGE_WRAP_CLASS_NAME = "relative w-24 h-24 sm:w-32 sm:h-32 lg:w-[150px] lg:h-[150px]";
-
-type ProgressiveImageProps = {
-  sources: string[];
-  alt: string;
-  priority: boolean;
-  onStageChange?: (stage: number) => void;
-  visibleStage?: number;
-};
-
-function ProgressiveImage({
-  sources,
-  alt,
-  priority,
-  onStageChange,
-  visibleStage,
-}: ProgressiveImageProps) {
-  const [loadedStage, setLoadedStage] = useState(-1);
-  const [maxRequestedIndex, setMaxRequestedIndex] = useState(0);
-
-  useEffect(() => {
-    onStageChange?.(loadedStage);
-  }, [loadedStage, onStageChange]);
-
-  const stageToShow = visibleStage ?? loadedStage;
-  const requestedSources = sources.slice(0, maxRequestedIndex + 1);
-
-  const handleLoad = (index: number) => {
-    setLoadedStage((prev) => (index > prev ? index : prev));
-    if (index === maxRequestedIndex && index < sources.length - 1) {
-      setMaxRequestedIndex(index + 1);
-    }
-  };
-
-  return (
-    <div className={IMAGE_WRAP_CLASS_NAME}>
-      {requestedSources.map((src, index) => (
-        <Image
-          key={`${src}-${index}`}
-          src={src}
-          alt={alt}
-          width={150}
-          height={150}
-          loading={index === 0 && priority ? "eager" : "lazy"}
-          fetchPriority={index === 0 && priority ? "high" : "auto"}
-          priority={index === 0 && priority}
-          sizes={IMAGE_SIZES}
-          quality={70}
-          onLoadingComplete={() => handleLoad(index)}
-          className={[
-            IMAGE_CLASS_NAME,
-            "absolute inset-0 transition-opacity duration-200",
-            index === stageToShow ? "opacity-100" : "opacity-0",
-          ].join(" ")}
-        />
-      ))}
-    </div>
-  );
-}
+const IMAGE_WRAP_CLASS_NAME =
+  "relative w-24 h-24 sm:w-32 sm:h-32 lg:w-[150px] lg:h-[150px]";
 
 export default function ImagePair({
   leftSrc,
@@ -108,6 +51,9 @@ export default function ImagePair({
         sources={resolvedLeftSources}
         alt={leftAlt}
         priority={priority}
+        sizes={IMAGE_SIZES}
+        className={IMAGE_CLASS_NAME}
+        wrapClassName={IMAGE_WRAP_CLASS_NAME}
         onStageChange={setLeftStage}
         visibleStage={syncedStage}
       />
@@ -115,6 +61,9 @@ export default function ImagePair({
         sources={resolvedRightSources}
         alt={rightAlt}
         priority={priority}
+        sizes={IMAGE_SIZES}
+        className={IMAGE_CLASS_NAME}
+        wrapClassName={IMAGE_WRAP_CLASS_NAME}
         onStageChange={setRightStage}
         visibleStage={syncedStage}
       />

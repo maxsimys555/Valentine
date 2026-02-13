@@ -1,7 +1,8 @@
 ﻿"use client";
 
 import AppLinkButton from "@/components/buttons/AppLinkButton";
-import Image from "next/image";
+import ProgressiveImage from "@/components/ProgressiveImage";
+import { getProgressiveSources } from "@/lib/images";
 import { useEffect, useState } from "react";
 
 export default function GoodbyePage() {
@@ -26,8 +27,20 @@ export default function GoodbyePage() {
             </h1>
           </div>
           <div className="flex justify-center gap-5 mt-10">
-            <Image src="/smile5.webp" alt="emoji" width={150} height={150} />
-            <Image src="/smile7.webp" alt="emoji" width={150} height={150} />
+            <ProgressiveImage
+              sources={getProgressiveSources("/smile5.webp")}
+              alt="emoji"
+              width={150}
+              height={150}
+              wrapClassName="relative w-[150px] h-[150px]"
+            />
+            <ProgressiveImage
+              sources={getProgressiveSources("/smile7.webp")}
+              alt="emoji"
+              width={150}
+              height={150}
+              wrapClassName="relative w-[150px] h-[150px]"
+            />
           </div>
           <div className="flex flex-col justify-center items-center mt-15">
             <div
@@ -42,7 +55,13 @@ export default function GoodbyePage() {
               <h1 className="text-3xl font-semibold text-slate-900">
                 Добре, даю тобі ще одну спробу...
               </h1>
-              <Image src="/smile8.webp" alt="emoji" width={100} height={100} />
+              <ProgressiveImage
+                sources={getProgressiveSources("/smile8.webp")}
+                alt="emoji"
+                width={100}
+                height={100}
+                wrapClassName="relative w-[100px] h-[100px]"
+              />
 
               <AppLinkButton
                 href="/first"

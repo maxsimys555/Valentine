@@ -2,6 +2,7 @@
 
 import AppLinkButton from "@/components/buttons/AppLinkButton";
 import ImagePair from "@/components/ImagePair/ImagePair";
+import { getProgressiveSources } from "@/lib/images";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
@@ -34,7 +35,11 @@ export default function Home() {
       <FireworksOnLoad durationMs={2000} />
       <div className="flex flex-col justify-center items-center h-screen">
         <div className="w-145 h-170 rounded-4xl bg-rose-50">
-          <ImagePair leftSrc="/smile19.webp" rightSrc="/smile19.webp"  priority />
+          <ImagePair
+            leftSources={getProgressiveSources("/smile19.webp")}
+            rightSources={getProgressiveSources("/smile19.webp")}
+            priority
+          />
           <div>
             <div className="flex flex-col gap-5 justify-center">
               <h1
@@ -81,7 +86,11 @@ export default function Home() {
               </AppLinkButton>
             </div>
           </div>
-          <ImagePair leftSrc="/smile19.webp" rightSrc="/smile19.webp" className="mt-17" />
+          <ImagePair
+            leftSources={getProgressiveSources("/smile19.webp")}
+            rightSources={getProgressiveSources("/smile19.webp")}
+            className="mt-17"
+          />
         </div>
       </div>
     </div>

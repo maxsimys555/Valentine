@@ -2,8 +2,9 @@
 
 import AppLinkButton from "@/components/buttons/AppLinkButton";
 import ImagePair from "@/components/ImagePair/ImagePair";
+import ProgressiveImage from "@/components/ProgressiveImage";
 import { gifts } from "@/lib/gifts";
-import Image from "next/image";
+import { getProgressiveSources } from "@/lib/images";
 import { useSearchParams } from "next/navigation";
 
 const CHOSEN_GIFT_CLASS =
@@ -18,7 +19,11 @@ export default function GiftsClient() {
   return (
     <div className="flex flex-col justify-center items-center h-screen">
       <div className="w-145 h-170 rounded-4xl bg-rose-50">
-        <ImagePair leftSrc="/smile20.webp" rightSrc="/smile20.webp"  priority />
+        <ImagePair
+          leftSources={getProgressiveSources("/smile20.webp")}
+          rightSources={getProgressiveSources("/smile20.webp")}
+          priority
+        />
 
         <div>
           <h1 className="text-3xl font-semibold text-center">Твій вибір:</h1>
@@ -33,7 +38,13 @@ export default function GiftsClient() {
                 return (
                   <div key={giftId} className={CHOSEN_GIFT_CLASS}>
                     {gift?.image ? (
-                      <Image src={gift.image} alt="gift" width={30} height={30} />
+                      <ProgressiveImage
+                        sources={getProgressiveSources(gift.image)}
+                        alt="gift"
+                        width={30}
+                        height={30}
+                        wrapClassName="relative w-[30px] h-[30px]"
+                      />
                     ) : (
                       gift?.label ?? giftId
                     )}
@@ -62,7 +73,11 @@ export default function GiftsClient() {
           </AppLinkButton>
         </div>
 
-        <ImagePair leftSrc="/smile20.webp" rightSrc="/smile20.webp" className="mt-8" />
+        <ImagePair
+          leftSources={getProgressiveSources("/smile20.webp")}
+          rightSources={getProgressiveSources("/smile20.webp")}
+          className="mt-8"
+        />
       </div>
     </div>
   );

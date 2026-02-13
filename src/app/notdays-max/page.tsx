@@ -2,12 +2,17 @@
 
 import AppLinkButton from "@/components/buttons/AppLinkButton";
 import ImagePair from "@/components/ImagePair/ImagePair";
+import { getProgressiveSources } from "@/lib/images";
 
 export default function Home() {
   return (
     <div className="flex flex-col justify-center items-center h-screen">
       <div className="w-145 h-170 rounded-4xl bg-rose-50">
-        <ImagePair leftSrc="/smile9.webp" rightSrc="/smile9.webp"  priority />
+        <ImagePair
+          leftSources={getProgressiveSources("/smile9.webp")}
+          rightSources={getProgressiveSources("/smile9.webp")}
+          priority
+        />
 
         <div className="flex justify-center mt-25">
           <h1 className="text-4xl font-semibold text-slate-900">Хммм.. Було б прикольно!</h1>
@@ -22,7 +27,11 @@ export default function Home() {
             Спробувати ще раз
           </AppLinkButton>
         </div>
-        <ImagePair leftSrc="/smile9.webp" rightSrc="/smile9.webp" className="mt-35" />
+        <ImagePair
+          leftSources={getProgressiveSources("/smile9.webp")}
+          rightSources={getProgressiveSources("/smile9.webp")}
+          className="mt-35"
+        />
       </div>
     </div>
   );

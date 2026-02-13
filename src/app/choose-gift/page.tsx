@@ -2,8 +2,9 @@
 
 import AppLinkButton from "@/components/buttons/AppLinkButton";
 import ImagePair from "@/components/ImagePair/ImagePair";
+import ProgressiveImage from "@/components/ProgressiveImage";
 import { gifts } from "@/lib/gifts";
-import Image from "next/image";
+import { getProgressiveSources } from "@/lib/images";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 const MAX = 3;
@@ -101,8 +102,8 @@ export default function Home() {
     <div className="flex flex-col justify-center items-center h-screen">
       <div className="w-145 h-170 rounded-4xl bg-rose-50">
         <ImagePair
-          leftSources={["/smile13_low.webp", "/smile13_medium.webp", "/smile13.webp"]}
-          rightSources={["/smile13_low.webp", "/smile13_medium.webp", "/smile13.webp"]}
+          leftSources={getProgressiveSources("/smile13.webp")}
+          rightSources={getProgressiveSources("/smile13.webp")}
           priority
         />
 
@@ -125,7 +126,13 @@ export default function Home() {
                     className={getGiftButtonClass(active)}
                   >
                     {gift.image ? (
-                      <Image src={gift.image} alt="gift" width={40} height={40} />
+                      <ProgressiveImage
+                        sources={getProgressiveSources(gift.image)}
+                        alt="gift"
+                        width={40}
+                        height={40}
+                        wrapClassName="relative w-10 h-10"
+                      />
                     ) : (
                       gift.label
                     )}
@@ -156,7 +163,13 @@ export default function Home() {
                     ].join(" ")}
                   >
                     {gift.image ? (
-                      <Image src={gift.image} alt="gift" width={40} height={40} />
+                      <ProgressiveImage
+                        sources={getProgressiveSources(gift.image)}
+                        alt="gift"
+                        width={40}
+                        height={40}
+                        wrapClassName="relative w-10 h-10"
+                      />
                     ) : (
                       gift.label
                     )}
@@ -184,8 +197,8 @@ export default function Home() {
         </div>
 
         <ImagePair
-          leftSources={["/smile13_low.webp", "/smile13_medium.webp", "/smile13.webp"]}
-          rightSources={["/smile13_low.webp", "/smile13_medium.webp", "/smile13.webp"]}
+          leftSources={getProgressiveSources("/smile13.webp")}
+          rightSources={getProgressiveSources("/smile13.webp")}
         />
       </div>
     </div>
