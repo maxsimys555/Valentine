@@ -59,7 +59,7 @@ export default function ProgressiveImage({
           alt={alt}
           width={width}
           height={height}
-          loading={index === 0 && priority ? "eager" : "lazy"}
+          loading={index === 0 ? "eager" : "lazy"}
           fetchPriority={index === 0 && priority ? "high" : "auto"}
           priority={index === 0 && priority}
           sizes={sizes}
