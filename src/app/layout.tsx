@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import ReduxProvider from "@/store/Provider";
 import TitleFromRedux from "@/components/TitleFromRedux";
 import NameBootstrapper from "@/components/NameBootstrapper";
@@ -13,6 +13,13 @@ export const metadata: Metadata = {
     icon: "/Love.webp",
   },
 };
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,4 +39,3 @@ export default function RootLayout({
     </html>
   );
 }
-
