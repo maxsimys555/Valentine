@@ -12,8 +12,8 @@ export default function WavingHand() {
         loading="eager"
         fetchPriority="high"
         priority
-        sizes="60px"
-        className={`w-15 h-15 ${styles.wave}`}
+        sizes="(min-width: 768px) 60px, 48px"
+        className={`w-12 h-12 sm:w-14 sm:h-14 md:w-15 md:h-15 ${styles.wave}`}
         draggable={false}
       />
     </div>

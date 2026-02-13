@@ -8,8 +8,10 @@ type CenteredCardProps = {
   cardClassName?: string;
 };
 
-const BASE_WRAPPER_CLASS = "flex flex-col justify-center items-center h-screen";
-const BASE_CARD_CLASS = "w-145 h-170 rounded-4xl bg-rose-50";
+const BASE_WRAPPER_CLASS =
+  "flex flex-col justify-center items-center min-h-screen px-4  ";
+const BASE_CARD_CLASS =
+  "w-full max-w-[550px] min-h-[45vh] sm:h-[670px] rounded-3xl sm:rounded-4xl bg-rose-50    shadow-lg";
 
 export default function CenteredCard({
   children,

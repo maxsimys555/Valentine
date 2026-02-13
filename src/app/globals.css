@@ -17,10 +17,17 @@ body {
   height: 100%;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  overflow-x: hidden;
 }
 
 @keyframes delayed-reveal {
@@ -36,9 +43,9 @@ body {
   }
 }
 
-.delayed-reveal-5s {
+.delayed-reveal-3s {
   opacity: 0;
   transform: translateY(16px);
   visibility: hidden;
-  animation: delayed-reveal 700ms ease-out 5s forwards;
+  animation: delayed-reveal 700ms ease-out 3s forwards;
 }

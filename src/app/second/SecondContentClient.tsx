@@ -26,20 +26,21 @@ export default function SecondContentClient() {
 
   return (
     <div>
-      <div className="flex flex-col gap-5 justify-center">
+      <div className="flex flex-col gap-4 sm:gap-5 justify-center">
         <h1
           className={[
-            "text-5xl font-semibold text-slate-900 text-center",
+            "text-3xl sm:text-4xl md:text-5xl font-semibold text-slate-900 text-center",
             "transition-all duration-500 ease-out",
             showTitle ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
           ].join(" ")}
         >
           Правильно!
         </h1>
+        <div>
         <h1
           className={[
-            "text-4xl font-semibold text-slate-900 text-center",
-            "transition-all duration-800 ease-out mt-5",
+            "text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-900 text-center",
+            "transition-all duration-800 ease-out mt-4 sm:mt-6",
             showText1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
           ].join(" ")}
         >
@@ -47,21 +48,22 @@ export default function SecondContentClient() {
         </h1>
         <h1
           className={[
-            "text-4xl font-semibold text-slate-900 text-center",
+            "text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-900 text-center",
             "transition-all duration-800 ease-out mt-2",
             showText2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
           ].join(" ")}
         >
           обрати собі подарунок!
         </h1>
+        </div>
       </div>
-      <div className="flex justify-center gap-5 mt-15">
+      <div className="flex justify-center gap-5 mt-8 sm:mt-12">
         <AppLinkButton
           href="/ready-choose"
           prefetch
           prefetchImages={getProgressiveSources("/smile10.webp")}
           className={[
-            "w-75 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700",
+            "w-full max-w-[320px] h-12 sm:h-14 text-xl sm:text-2xl md:text-3xl bg-indigo-600 hover:bg-indigo-700",
             "transition-all duration-500 ease-out",
             showBtn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12 pointer-events-none",
           ].join(" ")}

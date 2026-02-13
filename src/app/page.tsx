@@ -34,18 +34,18 @@ export default function Home() {
         priority
       />
       <div>
-        <div className="flex justify-center mt-27">
-          <h1 className="text-5xl font-semibold text-slate-900">
+        <div className="flex   items-center justify-center gap-2 mt-8 sm:mt-20">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-slate-900 text-center break-words">
             Привіт, <NameFromQuery />
           </h1>
           <WavingHand />
         </div>
-        <div className="flex justify-center mt-15">
+        <div className="flex justify-center mt-10 sm:mt-18">
           <AppLinkButton
             href="/first"
             prefetch
             prefetchImages={getProgressiveSources("/smile13.webp")}
-            className="w-50 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700"
+            className=" w-[240px]  sm:w-[240px] h-12 sm:h-14 text-xl sm:text-2xl md:text-3xl bg-indigo-600 hover:bg-indigo-700"
           >
             Привіт
           </AppLinkButton>
@@ -54,11 +54,9 @@ export default function Home() {
       <ImagePairServer
         leftSrc="/smile25.webp"
         rightSrc="/smile25.webp"
-        className="mt-26"
+        className="mt-12 sm:mt-28"
       />
     </CenteredCard>
   );
 }
-
-
 

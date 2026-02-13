@@ -30,8 +30,8 @@ export default function ReadyChooseClient() {
       <div className="flex flex-col text-center justify-center">
         <h1
           className={[
-            "text-4xl font-semibold text-slate-900 text-center",
-            "transition-all duration-800 ease-out mt-3",
+            "text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-900 text-center",
+            "transition-all duration-800 ease-out mt-2 sm:mt-2",
             showText1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
           ].join(" ")}
         >
@@ -42,21 +42,21 @@ export default function ReadyChooseClient() {
         </h1>
         <h1
           className={[
-            "text-4xl font-semibold text-slate-900 text-center",
-            "transition-all duration-800 ease-out mt-15",
+            "text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-900 text-center",
+            "transition-all duration-800 ease-out mt-8 sm:mt-12",
             showText2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
           ].join(" ")}
         >
           Готова зробити вибір?
         </h1>
       </div>
-      <div className="flex justify-center gap-5 mt-15">
+      <div className="flex justify-center gap-5 mt-8 sm:mt-12">
         <AppLinkButton
           href="/choose-gift"
           prefetch
           prefetchImages={getProgressiveSources("/smile13.webp")}
           className={[
-            "w-75 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700",
+            "w-full max-w-[220px] h-12 sm:h-14 text-xl sm:text-2xl md:text-3xl bg-indigo-600 hover:bg-indigo-700",
             "transition-all duration-500 ease-out",
             showBtn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12 pointer-events-none",
           ].join(" ")}

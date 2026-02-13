@@ -12,17 +12,18 @@ export default function Home() {
         priority
       />
       <div>
-        <div className="flex justify-center mt-25">
-          <h1 className="text-4xl font-semibold text-slate-900">
-            А ти знаєш, який сьогодні день?
+        <div className="flex justify-center mt-8 sm:mt-20">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-900 text-center">
+            А ти знаєш,
+            <br /> який сьогодні день?
           </h1>
         </div>
-        <div className="flex justify-center gap-5 mt-25">
+        <div className="flex  sm:flex-row justify-center gap-4 sm:gap-5 mt-8 sm:mt-16 px-4">
           <AppLinkButton
             href="/whatsday"
             prefetch
             prefetchImages={getProgressiveSources("/smile6.webp")}
-            className="w-50 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700"
+            className="w-full max-w-[190px] h-12 sm:h-14 text-xl sm:text-2xl md:text-3xl bg-indigo-600 hover:bg-indigo-700"
           >
             Так
           </AppLinkButton>
@@ -34,7 +35,7 @@ export default function Home() {
               ...getProgressiveSources("/smile7.webp"),
               ...getProgressiveSources("/smile8.webp"),
             ]}
-            className="w-50 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700"
+            className="w-full max-w-[190px] h-12 sm:h-14 text-xl sm:text-2xl md:text-3xl bg-indigo-600 hover:bg-indigo-700"
           >
             Ні
           </AppLinkButton>
@@ -43,7 +44,7 @@ export default function Home() {
       <ImagePairServer
         leftSrc="/smile13.webp"
         rightSrc="/smile13.webp"
-        className="mt-20"
+        className="mt-10 sm:mt-22"
       />
     </CenteredCard>
   );

@@ -12,13 +12,18 @@ const TRANSITION_MS = 250;
 const DEFAULT_OFFSET = { x: 0, y: 0 };
 
 const BASE_GIFT_BUTTON_CLASS =
-  "h-14 w-30 rounded-2xl text-lg cursor-pointer transition-all duration-300 flex items-center justify-center text-center";
+  "h-12 w-24 sm:h-14 sm:w-30 rounded-2xl text-base sm:text-lg cursor-pointer transition-all duration-300 flex items-center justify-center text-center";
 
 const POSITIONS = [
   { x: -65, y: 240 },
   { x: 138, y: 0 },
   { x: -272, y: 0 },
   { x: -65, y: -300 },
+];
+
+const MOBILE_POSITIONS = [
+  { x: -107, y: 0 },
+  { x: 107, y: 0 },
 ];
 
 export default function Home() {
@@ -33,6 +38,8 @@ export default function Home() {
   const [posIndex, setPosIndex] = useState(0);
   const [isMoving, setIsMoving] = useState(false);
   const [isMassageCaught, setIsMassageCaught] = useState(false);
+  const [escapeCount, setEscapeCount] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const clearTimers = () => {
     if (returnTimerRef.current !== null) {
@@ -89,23 +96,30 @@ export default function Home() {
     setIsMoving(true);
     clearTimers();
 
-    const nextIndex = (posIndex + 1) % POSITIONS.length;
+    const positions = isMobile ? MOBILE_POSITIONS : POSITIONS;
+    const nextIndex = (posIndex + 1) % positions.length;
     setPosIndex(nextIndex);
-    setMassageOffset(POSITIONS[nextIndex]);
+    setMassageOffset(positions[nextIndex]);
     scheduleReturn();
   };
 
   useEffect(() => clearTimers, []);
 
+  useEffect(() => {
+    const update = () => setIsMobile(window.innerWidth < 640);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
   return (
     <div>
-
       <div>
-        <div className="text-xl text-center font-semibold text-slate-900">
+        <div className="text-lg sm:text-xl text-center font-semibold text-slate-900">
           Обрано: {selected.length}/{MAX}
         </div>
 
-        <div className="flex gap-4 flex-wrap justify-center mt-10">
+        <div className="flex gap-3 sm:gap-4 flex-wrap justify-center mt-6 sm:mt-10 relative overflow-visible px-1">
           {gifts.map((gift) => {
             const active = selectedSet.has(gift.id);
             const isMassage = gift.id === "massage";
@@ -134,9 +148,19 @@ export default function Home() {
             }
 
             return (
-              <div key={gift.id} className="relative w-30 h-14" onMouseEnter={moveMassage}>
+              <div
+                key={gift.id}
+                className="relative w-24 h-12 sm:w-30 sm:h-14"
+                onMouseEnter={moveMassage}
+              >
                 <button
                   onClick={() => {
+                    if (!isMassageCaught && escapeCount < 2) {
+                      setEscapeCount((prev) => prev + 1);
+                      moveMassage();
+                      return;
+                    }
+
                     setIsMassageCaught(true);
                     toggleGift(gift.id);
                   }}
@@ -168,14 +192,14 @@ export default function Home() {
           })}
         </div>
 
-        <div className="flex justify-center gap-5 mt-15">
+        <div className="flex justify-center gap-5 mt-8 sm:mt-12">
           <AppLinkButton
             href={nextHref}
             prefetch
             prefetchImages={getProgressiveSources("/smile20.webp")}
             disabled={selected.length === 0}
             className={[
-              "h-14 px-6 text-lg",
+              "h-12 sm:h-14 px-6 text-base sm:text-lg",
               selected.length === 0
                 ? "bg-slate-300 text-slate-600 cursor-not-allowed"
                 : "bg-emerald-600 hover:bg-emerald-700",
@@ -188,4 +212,3 @@ export default function Home() {
     </div>
   );
 }
-

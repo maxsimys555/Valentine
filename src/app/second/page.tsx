@@ -13,7 +13,7 @@ export default function Home() {
         <ImagePairServer
           leftSrc="/smile19.webp"
           rightSrc="/smile19.webp"
-          className="mt-17"
+          className="mt-10 sm:mt-22"
         />
       </CenteredCard>
     </div>

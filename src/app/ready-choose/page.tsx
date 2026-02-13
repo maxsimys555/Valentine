@@ -7,7 +7,7 @@ export default function Home() {
     <CenteredCard>
       <ImagePairServer leftSrc="/smile10.webp" rightSrc="/smile10.webp" priority />
       <ReadyChooseClient />
-      <ImagePairServer leftSrc="/smile10.webp" rightSrc="/smile10.webp" />
+      <ImagePairServer leftSrc="/smile10.webp" rightSrc="/smile10.webp" className="mt-5" />
     </CenteredCard>
   );
 }
