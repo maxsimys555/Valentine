@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-linear-to-br from-blue-500 via-red-500 to-purple-600">
+      <body className="min-h-screen bg-transparent">
         <ReduxProvider>
           <Suspense fallback={null}>
             <NameBootstrapper />

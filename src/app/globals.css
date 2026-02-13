@@ -17,6 +17,12 @@ body {
   height: 100%;
 }
 
+html {
+  background: linear-gradient(135deg, #3b82f6 0%, #ef4444 50%, #9333ea 100%);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
 *,
 *::before,
 *::after {
@@ -24,7 +30,8 @@ body {
 }
 
 body {
-  background-color: var(--background);
+  margin: 0;
+  background-color: transparent;
   color: var(--foreground);
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   overflow-x: hidden;
