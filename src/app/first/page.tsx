@@ -1,8 +1,9 @@
-﻿"use client";
-
-import AppLinkButton from "@/components/buttons/AppLinkButton";
+﻿import Link from "next/link";
 import ImagePair from "@/components/ImagePair/ImagePair";
 import { getProgressiveSources } from "@/lib/images";
+
+const BASE_LINK_BUTTON_CLASS =
+  "rounded-2xl text-white active:scale-95 transition cursor-pointer inline-flex items-center justify-center";
 
 export default function Home() {
   return (
@@ -20,20 +21,26 @@ export default function Home() {
             </h1>
           </div>
           <div className="flex justify-center gap-5 mt-25">
-            <AppLinkButton
+            <Link
               href="/whatsday"
               prefetch
-              className="w-50 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700"
+              className={[
+                BASE_LINK_BUTTON_CLASS,
+                "w-50 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700",
+              ].join(" ")}
             >
               Так
-            </AppLinkButton>
-            <AppLinkButton
+            </Link>
+            <Link
               href="/goodbye"
               prefetch
-              className="w-50 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700"
+              className={[
+                BASE_LINK_BUTTON_CLASS,
+                "w-50 h-15 text-3xl bg-indigo-600 hover:bg-indigo-700",
+              ].join(" ")}
             >
               Ні
-            </AppLinkButton>
+            </Link>
           </div>
         </div>
         <ImagePair
@@ -45,6 +52,11 @@ export default function Home() {
     </div>
   );
 }
+
+
+
+
+
 
 
 
