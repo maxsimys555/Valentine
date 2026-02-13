@@ -30,7 +30,7 @@ export default function ImagePair({
   leftAlt = "emoji",
   rightAlt = "emoji",
   priority = false,
-  sync = true,
+  sync = false,
 }: ImagePairProps) {
   const resolvedLeftSources = useMemo(
     () => (leftSources && leftSources.length > 0 ? leftSources : leftSrc ? [leftSrc] : []),
