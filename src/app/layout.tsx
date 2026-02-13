@@ -19,8 +19,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="min-h-full">
-      <body className="min-h-[100dvh] bg-linear-to-br from-blue-500 via-red-500 to-purple-600 bg-fixed">
+    <html
+      lang="en"
+      className="min-h-full bg-linear-to-br from-blue-500 via-red-500 to-purple-600"
+    >
+      <body className="min-h-[100svh] bg-linear-to-br from-blue-500 via-red-500 to-purple-600">
         <ReduxProvider>
           <Suspense fallback={null}>
             <NameBootstrapper />
