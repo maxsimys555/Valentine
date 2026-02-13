@@ -56,7 +56,7 @@ export default function GoodbyePage() {
                 Добре, даю тобі ще одну спробу...
               </h1>
               <ProgressiveImage
-                sources={getProgressiveSources("/smile8.webp")}
+                sources={["/smile8.webp"]}
                 alt="emoji"
                 width={100}
                 height={100}
