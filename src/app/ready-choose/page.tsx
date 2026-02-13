@@ -13,6 +13,7 @@ export default function Home() {
   const [showText2, setShowText2] = useState(false);
   const [showBtn, setShowBtn] = useState(false);
   const name = useSelector((state: RootState) => state.name.value);
+  const displayName = name?.trim() ? name.trim() : "Любима";
 
   useEffect(() => {
     const t2 = setTimeout(() => setShowText1(true), 300);
@@ -42,7 +43,7 @@ export default function Home() {
               showText1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
             ].join(" ")}
           >
-            {name}, <br />Ти маєш обрати <br />
+            {displayName}, <br />Ти маєш обрати <br />
             <span className="text-red-500">3</span> з 10 подарунків,
             <br />
             яких ти отримаєш сьогодні.
